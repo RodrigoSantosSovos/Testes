@@ -3,6 +3,11 @@
   grid-template-columns: 260px 1fr;
   min-height: 100vh;
   color: var(--text-color);
+  transition: grid-template-columns 0.25s ease;
+}
+
+.app-shell.sidebar-collapsed {
+  grid-template-columns: 72px 1fr;
 }
 
 .sidebar {
@@ -10,13 +15,62 @@
   color: var(--sidebar-text);
   padding: 28px 20px;
   border-right: 1px solid var(--sidebar-border);
+  overflow: hidden;
+  transition: padding 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-collapsed .sidebar {
+  padding: 28px 10px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  min-height: 24px;
+}
+
+.sidebar-collapsed .sidebar-header {
+  justify-content: center;
 }
 
 .brand {
   color: var(--sidebar-heading);
   font-weight: 700;
   letter-spacing: 0.4px;
-  margin-bottom: 28px;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar-collapsed .brand {
+  opacity: 0;
+  width: 0;
+}
+
+.sidebar-toggle {
+  background: none;
+  border: 1px solid var(--sidebar-border);
+  border-radius: var(--radius-md);
+  color: var(--sidebar-link);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  flex-shrink: 0;
+  transition: color 0.15s ease;
+}
+
+.sidebar-toggle:hover {
+  color: var(--sidebar-heading);
+}
+
+.sidebar-nav {
+  overflow: hidden;
 }
 
 .menu {
@@ -32,6 +86,15 @@
   letter-spacing: 0.9px;
   margin: 0 0 8px;
   color: var(--sidebar-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar-collapsed .menu-title {
+  opacity: 0;
+  height: 0;
+  margin: 0;
 }
 
 .menu-item {
@@ -43,6 +106,19 @@
   background: transparent;
   cursor: pointer;
   font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-collapsed .menu-item {
+  font-size: 0;
+  padding: 10px;
+  text-align: center;
+}
+
+.sidebar-collapsed .menu-item::first-letter {
+  font-size: 14px;
 }
 
 .menu-item.active {
@@ -52,6 +128,14 @@
 
 .menu-item:hover {
   background: var(--sidebar-item-hover-bg);
+}
+
+.sidebar-backdrop {
+  display: none;
+}
+
+.menu-hamburger {
+  display: none;
 }
 
 .main-content {
@@ -68,6 +152,12 @@
   align-items: center;
   gap: 20px;
   border: 1px solid var(--panel-border);
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .topbar h1 {
@@ -310,12 +400,67 @@ tbody td {
 }
 
 @media (max-width: 1080px) {
-  .app-shell {
+  .app-shell,
+  .app-shell.sidebar-collapsed {
     grid-template-columns: 1fr;
   }
 
   .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    z-index: 200;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar-mobile-open .sidebar {
+    transform: translateX(0);
+  }
+
+  .sidebar-toggle {
     display: none;
+  }
+
+  .sidebar-collapsed .brand {
+    opacity: 1;
+    width: auto;
+  }
+
+  .sidebar-collapsed .menu-title {
+    opacity: 1;
+    height: auto;
+    margin: 0 0 8px;
+  }
+
+  .sidebar-collapsed .menu-item {
+    font-size: 14px;
+    padding: 10px 12px;
+    text-align: left;
+  }
+
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 199;
+    background: rgba(0, 0, 0, 0.45);
+    animation: fadeIn 0.2s ease;
+  }
+
+  .menu-hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: 1px solid var(--panel-border);
+    border-radius: var(--radius-md);
+    padding: 6px;
+    cursor: pointer;
+    color: var(--text-color);
+    flex-shrink: 0;
   }
 
   .metric-grid {
@@ -338,6 +483,11 @@ tbody td {
     align-items: stretch;
   }
 
+  .topbar-left {
+    flex-direction: row;
+    align-items: center;
+  }
+
   .topbar-actions {
     flex-direction: column;
     align-items: stretch;
@@ -351,4 +501,9 @@ tbody td {
   .metric-grid {
     grid-template-columns: 1fr;
   }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
