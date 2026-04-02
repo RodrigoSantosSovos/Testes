@@ -1,7 +1,7 @@
-function RevenueSources({ items }) {
+function RevenueSources({ sources }) {
   return (
     <div className="progress-list">
-      {items.map((source) => (
+      {sources.map((source) => (
         <div key={source.name}>
           <p>{source.name}</p>
           <div className="progress-bar">

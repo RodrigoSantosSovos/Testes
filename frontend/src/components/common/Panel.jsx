@@ -1,9 +1,9 @@
-function Panel({ title, actionLabel, large = false, children }) {
+function Panel({ title, className, action, children }) {
   return (
-    <article className={`panel ${large ? 'panel-large' : ''}`.trim()}>
+    <article className={`panel ${className ?? ''}`.trim()}>
       <div className="panel-head">
         <h2>{title}</h2>
-        {actionLabel ? <button className="ghost-btn">{actionLabel}</button> : null}
+        {action ?? null}
       </div>
       {children}
     </article>

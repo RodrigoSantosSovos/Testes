@@ -47,6 +47,38 @@
   --space-5: 20px;
   --space-6: 24px;
 
+  --page-bg: var(--color-bg-app);
+  --panel-bg: var(--color-bg-surface);
+  --panel-border: var(--color-border-soft);
+  --ghost-bg: var(--color-bg-soft);
+  --progress-track: var(--color-bg-soft);
+  --table-divider: var(--color-border-table);
+  --input-border: var(--color-border-input);
+
+  --text-color: var(--color-text-secondary);
+  --heading-color: var(--color-text-primary);
+  --muted-text: var(--color-text-muted);
+
+  --sidebar-bg: var(--color-bg-sidebar);
+  --sidebar-text: var(--color-text-sidebar);
+  --sidebar-heading: var(--color-text-inverse);
+  --sidebar-muted: var(--color-text-sidebar-title);
+  --sidebar-link: var(--color-text-sidebar-item);
+  --sidebar-border: var(--color-border-sidebar);
+  --sidebar-item-active-bg: var(--color-bg-sidebar-active);
+  --sidebar-item-hover-bg: var(--color-bg-sidebar-hover);
+
+  --primary: var(--color-primary);
+  --primary-soft: var(--color-primary-soft);
+  --primary-accent: #187de4;
+  --primary-contrast: var(--color-text-inverse);
+  --success: var(--color-success);
+  --success-soft: var(--color-success-soft);
+  --danger: var(--color-danger);
+  --danger-soft: var(--color-danger-soft);
+  --warning: var(--color-warning);
+  --warning-soft: var(--color-warning-soft);
+
   font-family:
     var(--font-family-base);
   line-height: 1.5;

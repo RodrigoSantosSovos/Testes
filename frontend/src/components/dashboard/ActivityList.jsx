@@ -1,7 +1,7 @@
-function ActivityList({ items }) {
+function ActivityList({ activities }) {
   return (
     <ul className="activity-list">
-      {items.map((item) => (
+      {activities.map((item) => (
         <li key={item.title}>
           <span className={`dot ${item.color}`} />
           <div>
