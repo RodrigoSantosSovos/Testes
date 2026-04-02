@@ -1,4 +1,4 @@
-function Sidebar({ brand, sections, collapsed, onToggle }) {
+function Sidebar({ brand, sections, collapsed, onToggle, activePage, onNavigate }) {
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
@@ -37,8 +37,9 @@ function Sidebar({ brand, sections, collapsed, onToggle }) {
             {section.items.map((item) => (
               <button
                 key={item.label}
-                className={`menu-item ${item.active ? 'active' : ''}`.trim()}
+                className={`menu-item ${activePage && item.page === activePage ? 'active' : ''}`.trim()}
                 title={collapsed ? item.label : undefined}
+                onClick={item.page ? () => onNavigate(item.page) : undefined}
               >
                 {item.label}
               </button>

@@ -2,7 +2,8 @@ export const menuSections = [
   {
     title: 'MAIN',
     items: [
-      { label: 'Dashboard', active: true },
+      { label: 'Dashboard', page: 'dashboard' },
+      { label: 'CRUD Demo', page: 'crud' },
       { label: 'eCommerce' },
       { label: 'Analytics' },
       { label: 'Customers' },

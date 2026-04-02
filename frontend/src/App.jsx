@@ -8,6 +8,7 @@ import PerformanceChart from './components/dashboard/PerformanceChart'
 import RevenueSources from './components/dashboard/RevenueSources'
 import CampaignTable from './components/dashboard/CampaignTable'
 import ActivityList from './components/dashboard/ActivityList'
+import CrudDemo from './pages/CrudDemo'
 import useDashboardData from './hooks/useDashboardData'
 
 function App() {
@@ -22,10 +23,15 @@ function App() {
 
   const [collapsed, setCollapsed] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [page, setPage] = useState('dashboard')
 
   const toggleCollapsed = useCallback(() => setCollapsed((v) => !v), [])
   const toggleMobileOpen = useCallback(() => setMobileOpen((v) => !v), [])
   const closeMobile = useCallback(() => setMobileOpen(false), [])
+  const navigate = useCallback((p) => {
+    setPage(p)
+    setMobileOpen(false)
+  }, [])
 
   const shellClass = [
     'app-shell',
@@ -35,6 +41,12 @@ function App() {
     .filter(Boolean)
     .join(' ')
 
+  const pageTitle = page === 'crud' ? 'CRUD Demo' : headerData.title
+  const pageSubtitle =
+    page === 'crud'
+      ? 'Demonstração de formulários, tabelas, botões, cards e demais componentes.'
+      : headerData.subtitle
+
   return (
     <div className={shellClass}>
       <Sidebar
@@ -42,6 +54,8 @@ function App() {
         sections={menuSections}
         collapsed={collapsed}
         onToggle={toggleCollapsed}
+        activePage={page}
+        onNavigate={navigate}
       />
 
       {mobileOpen && (
@@ -50,38 +64,44 @@ function App() {
 
       <main className="main-content">
         <Topbar
-          title={headerData.title}
-          subtitle={headerData.subtitle}
+          title={pageTitle}
+          subtitle={pageSubtitle}
           searchPlaceholder={headerData.searchPlaceholder}
-          actionLabel={headerData.primaryActionLabel}
+          actionLabel={page === 'crud' ? 'Novo Registro' : headerData.primaryActionLabel}
           onMenuClick={toggleMobileOpen}
         />
 
-        <MetricGrid metrics={metricCards} />
+        {page === 'dashboard' && (
+          <>
+            <MetricGrid metrics={metricCards} />
 
-        <section className="content-grid">
-          <Panel
-            title="Performance Overview"
-            className="panel-large"
-            action={<button className="ghost-btn">Export</button>}
-          >
-            <PerformanceChart />
-          </Panel>
+            <section className="content-grid">
+              <Panel
+                title="Performance Overview"
+                className="panel-large"
+                action={<button className="ghost-btn">Export</button>}
+              >
+                <PerformanceChart />
+              </Panel>
 
-          <Panel title="Revenue Sources">
-            <RevenueSources sources={revenueSources} />
-          </Panel>
-        </section>
+              <Panel title="Revenue Sources">
+                <RevenueSources sources={revenueSources} />
+              </Panel>
+            </section>
 
-        <section className="content-grid">
-          <Panel title="Campaign Performance" className="panel-large">
-            <CampaignTable rows={campaignRows} />
-          </Panel>
+            <section className="content-grid">
+              <Panel title="Campaign Performance" className="panel-large">
+                <CampaignTable rows={campaignRows} />
+              </Panel>
 
-          <Panel title="Recent Activity">
-            <ActivityList activities={activities} />
-          </Panel>
-        </section>
+              <Panel title="Recent Activity">
+                <ActivityList activities={activities} />
+              </Panel>
+            </section>
+          </>
+        )}
+
+        {page === 'crud' && <CrudDemo />}
       </main>
     </div>
   )
