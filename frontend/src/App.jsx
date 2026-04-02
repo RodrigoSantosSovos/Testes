@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react'
 import './App.css'
+import { useI18n } from './i18n/useI18n'
 import Sidebar from './components/layout/Sidebar'
 import Topbar from './components/layout/Topbar'
 import Panel from './components/common/Panel'
@@ -12,6 +13,7 @@ import CrudDemo from './pages/CrudDemo'
 import useDashboardData from './hooks/useDashboardData'
 
 function App() {
+  const { t } = useI18n()
   const {
     menuSections,
     headerData,
@@ -41,11 +43,8 @@ function App() {
     .filter(Boolean)
     .join(' ')
 
-  const pageTitle = page === 'crud' ? 'CRUD Demo' : headerData.title
-  const pageSubtitle =
-    page === 'crud'
-      ? 'Demonstração de formulários, tabelas, botões, cards e demais componentes.'
-      : headerData.subtitle
+  const pageTitle = page === 'crud' ? t.crud.title : headerData.title
+  const pageSubtitle = page === 'crud' ? t.crud.subtitle : headerData.subtitle
 
   return (
     <div className={shellClass}>
@@ -67,7 +66,7 @@ function App() {
           title={pageTitle}
           subtitle={pageSubtitle}
           searchPlaceholder={headerData.searchPlaceholder}
-          actionLabel={page === 'crud' ? 'Novo Registro' : headerData.primaryActionLabel}
+          actionLabel={page === 'crud' ? t.topbar.newRecord : headerData.primaryActionLabel}
           onMenuClick={toggleMobileOpen}
         />
 
@@ -77,24 +76,24 @@ function App() {
 
             <section className="content-grid">
               <Panel
-                title="Performance Overview"
+                title={t.dashboard.performanceOverview}
                 className="panel-large"
-                action={<button className="ghost-btn">Export</button>}
+                action={<button className="ghost-btn">{t.dashboard.export}</button>}
               >
                 <PerformanceChart />
               </Panel>
 
-              <Panel title="Revenue Sources">
+              <Panel title={t.dashboard.revenueSources}>
                 <RevenueSources sources={revenueSources} />
               </Panel>
             </section>
 
             <section className="content-grid">
-              <Panel title="Campaign Performance" className="panel-large">
+              <Panel title={t.dashboard.campaignPerformance} className="panel-large">
                 <CampaignTable rows={campaignRows} />
               </Panel>
 
-              <Panel title="Recent Activity">
+              <Panel title={t.dashboard.recentActivity}>
                 <ActivityList activities={activities} />
               </Panel>
             </section>
