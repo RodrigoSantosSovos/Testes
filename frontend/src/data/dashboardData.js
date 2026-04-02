@@ -1,4 +1,4 @@
-export const sidebarSections = [
+export const menuSections = [
   {
     title: 'MAIN',
     items: [
@@ -21,6 +21,13 @@ export const metricCards = [
   { title: 'Open Tickets', value: '47', delta: '-2.7%', tone: 'danger' },
   { title: 'Conversion Rate', value: '6.82%', delta: '+0.9%', tone: 'success' },
 ]
+
+export const headerData = {
+  title: 'Dashboard Overview',
+  subtitle: 'Welcome back, Rodrigo. Here is your performance summary.',
+  searchPlaceholder: 'Search...',
+  primaryActionLabel: 'Create Report',
+}
 
 export const revenueSources = [
   { name: 'Direct Sales', value: '68%' },

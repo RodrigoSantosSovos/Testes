@@ -26,7 +26,7 @@ function App() {
           title={headerData.title}
           subtitle={headerData.subtitle}
           searchPlaceholder={headerData.searchPlaceholder}
-          primaryActionLabel={headerData.primaryActionLabel}
+          actionLabel={headerData.primaryActionLabel}
         />
 
         <MetricGrid cards={metricCards} />
