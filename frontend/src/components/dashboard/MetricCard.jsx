@@ -1,4 +1,6 @@
-function MetricCard({ title, value, delta, tone }) {
+function MetricCard({ metric }) {
+  const { title, value, delta, tone } = metric
+
   return (
     <article className="metric-card">
       <p>{title}</p>

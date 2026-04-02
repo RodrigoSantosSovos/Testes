@@ -1,10 +1,10 @@
 import MetricCard from './MetricCard'
 
-function MetricGrid({ metrics }) {
+function MetricGrid({ cards }) {
   return (
     <section className="metric-grid">
-      {metrics.map((metric) => (
-        <MetricCard key={metric.title} metric={metric} />
+      {cards.map((card) => (
+        <MetricCard key={card.title} {...card} />
       ))}
     </section>
   )

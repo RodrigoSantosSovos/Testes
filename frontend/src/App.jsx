@@ -7,16 +7,18 @@ import PerformanceChart from './components/dashboard/PerformanceChart'
 import RevenueSources from './components/dashboard/RevenueSources'
 import CampaignTable from './components/dashboard/CampaignTable'
 import ActivityList from './components/dashboard/ActivityList'
-import {
-  activities,
-  campaignRows,
-  headerData,
-  menuSections,
-  metricCards,
-  revenueSources,
-} from './data/dashboardData'
+import useDashboardData from './hooks/useDashboardData'
 
 function App() {
+  const {
+    menuSections,
+    headerData,
+    metricCards,
+    revenueSources,
+    campaignRows,
+    activities,
+  } = useDashboardData()
+
   return (
     <div className="app-shell">
       <Sidebar brand="Metronic Style" sections={menuSections} />
@@ -29,25 +31,29 @@ function App() {
           actionLabel={headerData.primaryActionLabel}
         />
 
-        <MetricGrid cards={metricCards} />
+        <MetricGrid metrics={metricCards} />
 
         <section className="content-grid">
-          <Panel title="Performance Overview" large actionLabel="Export">
+          <Panel
+            title="Performance Overview"
+            className="panel-large"
+            action={<button className="ghost-btn">Export</button>}
+          >
             <PerformanceChart />
           </Panel>
 
           <Panel title="Revenue Sources">
-            <RevenueSources items={revenueSources} />
+            <RevenueSources sources={revenueSources} />
           </Panel>
         </section>
 
         <section className="content-grid">
-          <Panel title="Campaign Performance" large>
+          <Panel title="Campaign Performance" className="panel-large">
             <CampaignTable rows={campaignRows} />
           </Panel>
 
           <Panel title="Recent Activity">
-            <ActivityList items={activities} />
+            <ActivityList activities={activities} />
           </Panel>
         </section>
       </main>
