@@ -39,11 +39,16 @@
 
 .brand {
   color: var(--sidebar-heading);
-  font-weight: 700;
-  letter-spacing: 0.4px;
+  display: flex;
+  align-items: center;
   white-space: nowrap;
   overflow: hidden;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, width 0.25s ease;
+}
+
+.brand svg {
+  display: block;
+  flex-shrink: 0;
 }
 
 .sidebar-collapsed .brand {

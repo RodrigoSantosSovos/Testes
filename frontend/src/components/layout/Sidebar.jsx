@@ -1,8 +1,12 @@
-function Sidebar({ brand, sections, collapsed, onToggle, activePage, onNavigate }) {
+import SovosLogo from '../common/SovosLogo'
+
+function Sidebar({ sections, collapsed, onToggle, activePage, onNavigate }) {
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
-        <div className="brand">{brand}</div>
+        <div className="brand">
+          <SovosLogo width={110} />
+        </div>
         <button
           className="sidebar-toggle"
           onClick={onToggle}

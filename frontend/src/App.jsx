@@ -49,7 +49,6 @@ function App() {
   return (
     <div className={shellClass}>
       <Sidebar
-        brand="Metronic Style"
         sections={menuSections}
         collapsed={collapsed}
         onToggle={toggleCollapsed}
