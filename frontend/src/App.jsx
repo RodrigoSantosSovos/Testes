@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react'
 import './App.css'
 import { useI18n } from './i18n/useI18n'
+import LoginPage from './pages/LoginPage'
 import Sidebar from './components/layout/Sidebar'
 import Topbar from './components/layout/Topbar'
 import Panel from './components/common/Panel'
@@ -14,6 +15,18 @@ import useDashboardData from './hooks/useDashboardData'
 
 function App() {
   const { t } = useI18n()
+  const [user, setUser] = useState(null)
+
+  const handleLogin = useCallback((username) => setUser(username), [])
+
+  if (!user) {
+    return <LoginPage onLogin={handleLogin} />
+  }
+
+  return <DashboardShell t={t} user={user} />
+}
+
+function DashboardShell({ t }) {
   const {
     menuSections,
     headerData,

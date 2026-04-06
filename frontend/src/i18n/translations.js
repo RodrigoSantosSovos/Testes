@@ -58,6 +58,20 @@ const translations = {
       yesterday: 'Ontem, 21:14',
     },
 
+    login: {
+      title: 'Bem-vindo de volta',
+      subtitle: 'Faça login para acessar o painel.',
+      user: 'Usuário',
+      userPlaceholder: 'Digite seu usuário',
+      password: 'Senha',
+      passwordPlaceholder: 'Digite sua senha',
+      submit: 'Entrar',
+      rememberMe: 'Lembrar-me',
+      forgotPassword: 'Esqueceu a senha?',
+      errorEmpty: 'Preencha o usuário e a senha.',
+      errorInvalid: 'Usuário ou senha inválidos.',
+    },
+
     crud: {
       title: 'CRUD Demo',
       subtitle: 'Demonstração de formulários, tabelas, botões, cards e demais componentes.',
@@ -171,6 +185,20 @@ const translations = {
       yesterday: 'Yesterday, 21:14',
     },
 
+    login: {
+      title: 'Welcome back',
+      subtitle: 'Sign in to access the dashboard.',
+      user: 'Username',
+      userPlaceholder: 'Enter your username',
+      password: 'Password',
+      passwordPlaceholder: 'Enter your password',
+      submit: 'Sign in',
+      rememberMe: 'Remember me',
+      forgotPassword: 'Forgot password?',
+      errorEmpty: 'Please enter username and password.',
+      errorInvalid: 'Invalid username or password.',
+    },
+
     crud: {
       title: 'CRUD Demo',
       subtitle: 'Demonstration of forms, tables, buttons, cards and other components.',
@@ -282,6 +310,20 @@ const translations = {
       minutesAgo: 'hace {n} minutos',
       hoursAgo: 'hace {n} horas',
       yesterday: 'Ayer, 21:14',
+    },
+
+    login: {
+      title: 'Bienvenido de nuevo',
+      subtitle: 'Inicie sesión para acceder al panel.',
+      user: 'Usuario',
+      userPlaceholder: 'Ingrese su usuario',
+      password: 'Contraseña',
+      passwordPlaceholder: 'Ingrese su contraseña',
+      submit: 'Ingresar',
+      rememberMe: 'Recordarme',
+      forgotPassword: '¿Olvidó su contraseña?',
+      errorEmpty: 'Complete el usuario y la contraseña.',
+      errorInvalid: 'Usuario o contraseña inválidos.',
     },
 
     crud: {
