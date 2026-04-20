@@ -2,24 +2,28 @@ const translations = {
   pt: {
     lang: { pt: 'Português', en: 'English', es: 'Español' },
     footer: { rights: 'Todos os direitos reservados.' },
+    placeholder: { comingSoon: 'Esta página será implementada em breve.' },
 
-    sidebar: {
-      main: 'PRINCIPAL',
-      settings: 'CONFIGURAÇÕES',
+    menu: {
       dashboard: 'Dashboard',
-      crudDemo: 'CRUD Demo',
-      ecommerce: 'eCommerce',
-      analytics: 'Analytics',
-      customers: 'Clientes',
-      reports: 'Relatórios',
-      profile: 'Perfil',
-      billing: 'Faturamento',
-      systemLogs: 'Logs do Sistema',
+      documents: 'Documentos',
+      processes: 'Processos',
+      configuration: 'Configuração',
+      configGeneral: 'Geral',
+      configRulePrint: 'Regra de Impressão',
+      configRuleDistribution: 'Regra de Distribuição',
+      security: 'Segurança',
+      secPartner: 'Parceiros',
+      secCompanies: 'Empresas',
+      secUsers: 'Usuários',
+      secBusinessGroup: 'Grupo Empresarial',
+      logReception: 'Log de Recepção',
+      idocGeneration: 'Geração de IDoc',
+      utilities: 'Úteis',
     },
 
     topbar: {
       search: 'Buscar...',
-      createReport: 'Criar Relatório',
       newRecord: 'Novo Registro',
     },
 
@@ -130,24 +134,28 @@ const translations = {
   en: {
     lang: { pt: 'Português', en: 'English', es: 'Español' },
     footer: { rights: 'All rights reserved.' },
+    placeholder: { comingSoon: 'This page will be implemented soon.' },
 
-    sidebar: {
-      main: 'MAIN',
-      settings: 'SETTINGS',
+    menu: {
       dashboard: 'Dashboard',
-      crudDemo: 'CRUD Demo',
-      ecommerce: 'eCommerce',
-      analytics: 'Analytics',
-      customers: 'Customers',
-      reports: 'Reports',
-      profile: 'Profile',
-      billing: 'Billing',
-      systemLogs: 'System Logs',
+      documents: 'Documents',
+      processes: 'Processes',
+      configuration: 'Configuration',
+      configGeneral: 'General',
+      configRulePrint: 'Rule Print',
+      configRuleDistribution: 'Rule of Distribution',
+      security: 'Security',
+      secPartner: 'Partner',
+      secCompanies: 'Companies',
+      secUsers: 'Users',
+      secBusinessGroup: 'Business Group',
+      logReception: 'Log Reception',
+      idocGeneration: 'IDoc Generation',
+      utilities: 'Utilities',
     },
 
     topbar: {
       search: 'Search...',
-      createReport: 'Create Report',
       newRecord: 'New Record',
     },
 
@@ -258,24 +266,28 @@ const translations = {
   es: {
     lang: { pt: 'Português', en: 'English', es: 'Español' },
     footer: { rights: 'Todos los derechos reservados.' },
+    placeholder: { comingSoon: 'Esta página se implementará próximamente.' },
 
-    sidebar: {
-      main: 'PRINCIPAL',
-      settings: 'CONFIGURACIÓN',
+    menu: {
       dashboard: 'Dashboard',
-      crudDemo: 'CRUD Demo',
-      ecommerce: 'eCommerce',
-      analytics: 'Analytics',
-      customers: 'Clientes',
-      reports: 'Informes',
-      profile: 'Perfil',
-      billing: 'Facturación',
-      systemLogs: 'Registros del Sistema',
+      documents: 'Documentos',
+      processes: 'Procesos',
+      configuration: 'Configuración',
+      configGeneral: 'General',
+      configRulePrint: 'Regla de Impresión',
+      configRuleDistribution: 'Regla de Distribución',
+      security: 'Seguridad',
+      secPartner: 'Socios',
+      secCompanies: 'Empresas',
+      secUsers: 'Usuarios',
+      secBusinessGroup: 'Grupo Empresarial',
+      logReception: 'Log de Recepción',
+      idocGeneration: 'Generación de IDoc',
+      utilities: 'Utilidades',
     },
 
     topbar: {
       search: 'Buscar...',
-      createReport: 'Crear Informe',
       newRecord: 'Nuevo Registro',
     },
 

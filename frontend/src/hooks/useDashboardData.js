@@ -4,38 +4,8 @@ import { useI18n } from '../i18n/useI18n'
 function useDashboardData() {
   const { t } = useI18n()
   const d = t.dashboard
-  const s = t.sidebar
 
   return useMemo(() => ({
-    menuSections: [
-      {
-        title: s.main,
-        items: [
-          { label: s.dashboard, page: 'dashboard' },
-          { label: s.crudDemo, page: 'crud' },
-          { label: s.ecommerce },
-          { label: s.analytics },
-          { label: s.customers },
-          { label: s.reports },
-        ],
-      },
-      {
-        title: s.settings,
-        items: [
-          { label: s.profile },
-          { label: s.billing },
-          { label: s.systemLogs },
-        ],
-      },
-    ],
-
-    headerData: {
-      title: d.title,
-      subtitle: d.subtitle,
-      searchPlaceholder: t.topbar.search,
-      primaryActionLabel: t.topbar.createReport,
-    },
-
     metricCards: [
       { title: d.totalRevenue, value: '$124,500', delta: '+12.4%', tone: 'success' },
       { title: d.newCustomers, value: '1,284', delta: '+8.1%', tone: 'primary' },
@@ -63,7 +33,7 @@ function useDashboardData() {
       { title: d.ticketEscalated, time: d.hoursAgo.replace('{n}', '2'), color: 'danger' },
       { title: d.productSync, time: d.yesterday, color: 'warning' },
     ],
-  }), [t, d, s])
+  }), [d])
 }
 
 export default useDashboardData

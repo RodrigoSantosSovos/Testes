@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useI18n } from '../i18n/useI18n'
 import { useTheme } from '../theme/useTheme'
+import { login as loginService } from '../services/authService'
 import SovosLogo from '../components/common/SovosLogo'
 import './LoginPage.css'
 
@@ -28,14 +29,12 @@ function LoginPage({ onLogin }) {
     }
 
     setLoading(true)
-    setTimeout(() => {
-      if (user === 'admin' && password === 'admin') {
-        onLogin(user)
-      } else {
+    loginService(user, password)
+      .then((userData) => onLogin(userData))
+      .catch(() => {
         setError(l.errorInvalid)
         setLoading(false)
-      }
-    }, 800)
+      })
   }
 
   return (
