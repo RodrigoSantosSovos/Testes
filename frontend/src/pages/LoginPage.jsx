@@ -146,6 +146,10 @@ function LoginPage({ onLogin }) {
           Demo: <strong>admin</strong> / <strong>admin</strong>
         </p>
       </div>
+
+      <footer className="login-footer">
+        © {new Date().getFullYear()} Sovos. {t.footer.rights}
+      </footer>
     </div>
   )
 }

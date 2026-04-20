@@ -1,6 +1,7 @@
 const translations = {
   pt: {
     lang: { pt: 'Português', en: 'English', es: 'Español' },
+    footer: { rights: 'Todos os direitos reservados.' },
 
     sidebar: {
       main: 'PRINCIPAL',
@@ -128,6 +129,7 @@ const translations = {
 
   en: {
     lang: { pt: 'Português', en: 'English', es: 'Español' },
+    footer: { rights: 'All rights reserved.' },
 
     sidebar: {
       main: 'MAIN',
@@ -255,6 +257,7 @@ const translations = {
 
   es: {
     lang: { pt: 'Português', en: 'English', es: 'Español' },
+    footer: { rights: 'Todos los derechos reservados.' },
 
     sidebar: {
       main: 'PRINCIPAL',

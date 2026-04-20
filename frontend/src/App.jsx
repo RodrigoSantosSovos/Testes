@@ -113,6 +113,10 @@ function DashboardShell({ t }) {
         )}
 
         {page === 'crud' && <CrudDemo />}
+
+        <footer className="app-footer">
+          © {new Date().getFullYear()} Sovos. {t.footer.rights}
+        </footer>
       </main>
     </div>
   )
