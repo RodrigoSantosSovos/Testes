@@ -224,6 +224,7 @@ const translations = {
       justificationPlaceholder: 'Motivo da exclusão...',
       cancel: 'Cancelar',
       copied: 'Copiado!',
+      view: 'Visualizar',
     },
 
     crud: {
@@ -505,6 +506,7 @@ const translations = {
       justificationPlaceholder: 'Reason for deletion...',
       cancel: 'Cancel',
       copied: 'Copied!',
+      view: 'View',
     },
 
     crud: {
@@ -786,6 +788,7 @@ const translations = {
       justificationPlaceholder: 'Razón de la eliminación...',
       cancel: 'Cancelar',
       copied: '¡Copiado!',
+      view: 'Visualizar',
     },
 
     crud: {

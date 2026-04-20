@@ -4,7 +4,7 @@ import { hasPermission } from '../../services/authService'
 import {
   fetchDocumentDetail, fetchDocumentHistory, fetchDocumentAttachments,
   fetchDocumentErrors, fetchDocumentAudit, fetchDocumentFlags,
-  fetchDocumentMessages, executeAction, deleteDocument, sendToQueue,
+  fetchDocumentMessages, fetchAttachmentContent, executeAction, deleteDocument, sendToQueue,
 } from '../../services/documentService'
 
 const SEMAPHORE = ['⏳', '✅', '❌']
@@ -28,6 +28,8 @@ function DocumentDetail({ documentId, onBack, userPermissions, actionOptions }) 
   const [deleteModal, setDeleteModal] = useState(false)
   const [deleteReason, setDeleteReason] = useState('')
   const [queueName, setQueueName] = useState('')
+  const [preview, setPreview] = useState(null)
+  const [previewLoading, setPreviewLoading] = useState(false)
 
   const showAlert = useCallback((type, message) => {
     setAlert({ type, message })
@@ -71,6 +73,14 @@ function DocumentDetail({ documentId, onBack, userPermissions, actionOptions }) 
       setQueueName('')
     })
   }, [documentId, queueName, showAlert])
+
+  const handlePreview = useCallback((attachment) => {
+    setPreviewLoading(true)
+    setPreview({ name: attachment.name, type: null, content: null })
+    fetchAttachmentContent(documentId, attachment.name)
+      .then((data) => setPreview({ name: attachment.name, ...data }))
+      .finally(() => setPreviewLoading(false))
+  }, [documentId])
 
   const fmtDate = (d) => d ? new Date(d).toLocaleString() : '—'
   const copyToClipboard = (text) => { navigator.clipboard.writeText(text); showAlert('success', dt.copied) }
@@ -168,13 +178,22 @@ function DocumentDetail({ documentId, onBack, userPermissions, actionOptions }) 
 
           {tab === 'attachments' && (
             <table><thead><tr>
-              <th>{dt.creationDate}</th><th>{dt.attachmentName}</th><th>{dt.download}</th>
+              <th>{dt.creationDate}</th><th>{dt.attachmentName}</th><th></th>
             </tr></thead><tbody>
               {(attachments || []).map((a) => (
                 <tr key={a.id}>
                   <td>{fmtDate(a.creationDate)}</td>
-                  <td>{a.name}</td>
-                  <td><a href={a.downloadUrl} className="doc-download-link">{a.type === 'Data' ? '📄' : '⬇️'} {dt.download}</a></td>
+                  <td className="td-name">{a.name}</td>
+                  <td className="td-attach-actions">
+                    <button className="attach-btn attach-view" onClick={() => handlePreview(a)} title={dt.view}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" strokeWidth="2"/><circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2"/></svg>
+                      {dt.view}
+                    </button>
+                    <a href={a.downloadUrl} className="attach-btn attach-download" title={dt.download}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      {dt.download}
+                    </a>
+                  </td>
                 </tr>
               ))}
             </tbody></table>
@@ -282,6 +301,38 @@ function DocumentDetail({ documentId, onBack, userPermissions, actionOptions }) 
         </div>
       </div>
 
+      {preview && (
+        <div className="modal-backdrop preview-backdrop" onClick={() => setPreview(null)}>
+          <div className="preview-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="preview-header">
+              <div className="preview-title">
+                <span className="preview-file-icon">
+                  {preview.name?.endsWith('.xml') ? '📄' : preview.name?.endsWith('.pdf') ? '📕' : '📝'}
+                </span>
+                <h3>{preview.name}</h3>
+              </div>
+              <button className="preview-close" onClick={() => setPreview(null)}>✕</button>
+            </div>
+            <div className="preview-body">
+              {previewLoading && <div className="preview-loading">{dt.loading}</div>}
+              {!previewLoading && preview.type === 'xml' && (
+                <pre className="preview-code preview-xml">{highlightXml(preview.content)}</pre>
+              )}
+              {!previewLoading && (preview.type === 'txt' || preview.type === 'text') && (
+                <pre className="preview-code preview-txt">{preview.content}</pre>
+              )}
+              {!previewLoading && preview.type === 'pdf' && (
+                <div className="preview-unsupported">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" strokeWidth="2"/><path d="M14 2v6h6" stroke="currentColor" strokeWidth="2"/></svg>
+                  <p>{preview.message}</p>
+                  <a href={`#download/${preview.name}`} className="primary-btn">{dt.download}</a>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
       {deleteModal && (
         <div className="modal-backdrop" onClick={() => setDeleteModal(false)}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
@@ -310,6 +361,11 @@ function FieldCopy({ label, value, onCopy }) {
       <button className="doc-copy-btn" onClick={() => onCopy(value)} title="Copy">📋</button>
     </div>
   )
+}
+
+function highlightXml(xml) {
+  if (!xml) return ''
+  return xml
 }
 
 function tagToLabelKey(tag) {

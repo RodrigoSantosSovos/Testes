@@ -93,6 +93,108 @@ export async function fetchDocumentAttachments(documentId) {
   }))
 }
 
+export async function fetchAttachmentContent(documentId, attachmentName) {
+  await new Promise((r) => setTimeout(r, 300))
+  const ext = attachmentName.split('.').pop().toLowerCase()
+
+  if (ext === 'xml') {
+    return {
+      type: 'xml',
+      content: `<?xml version="1.0" encoding="UTF-8"?>
+<nfeProc xmlns="http://www.portalfiscal.inf.br/nfe" versao="4.00">
+  <NFe>
+    <infNFe versao="4.00" Id="NFe${documentId}">
+      <ide>
+        <cUF>35</cUF>
+        <cNF>00000001</cNF>
+        <natOp>Venda de mercadoria</natOp>
+        <mod>55</mod>
+        <serie>1</serie>
+        <nNF>${Math.floor(Math.random() * 9000) + 1000}</nNF>
+        <dhEmi>2025-03-15T10:30:00-03:00</dhEmi>
+        <tpNF>1</tpNF>
+        <idDest>1</idDest>
+        <tpAmb>1</tpAmb>
+      </ide>
+      <emit>
+        <CNPJ>12345678000195</CNPJ>
+        <xNome>Empresa Emissora LTDA</xNome>
+        <enderEmit>
+          <xLgr>Rua das Flores</xLgr>
+          <nro>123</nro>
+          <xBairro>Centro</xBairro>
+          <cMun>3550308</cMun>
+          <xMun>São Paulo</xMun>
+          <UF>SP</UF>
+          <CEP>01001000</CEP>
+        </enderEmit>
+      </emit>
+      <dest>
+        <CNPJ>98765432000100</CNPJ>
+        <xNome>Empresa Receptora S.A.</xNome>
+      </dest>
+      <det nItem="1">
+        <prod>
+          <cProd>001</cProd>
+          <xProd>Produto Teste</xProd>
+          <NCM>84714100</NCM>
+          <qCom>10.0000</qCom>
+          <vUnCom>150.00</vUnCom>
+          <vProd>1500.00</vProd>
+        </prod>
+      </det>
+      <total>
+        <ICMSTot>
+          <vNF>1500.00</vNF>
+        </ICMSTot>
+      </total>
+    </infNFe>
+  </NFe>
+  <protNFe versao="4.00">
+    <infProt>
+      <tpAmb>1</tpAmb>
+      <chNFe>35250312345678000195550010000${documentId}0</chNFe>
+      <dhRecbto>2025-03-15T10:31:00-03:00</dhRecbto>
+      <nProt>135250000000001</nProt>
+      <digVal>abc123def456</digVal>
+      <cStat>100</cStat>
+      <xMotivo>Autorizado o uso da NF-e</xMotivo>
+    </infProt>
+  </protNFe>
+</nfeProc>`,
+    }
+  }
+
+  if (ext === 'txt') {
+    return {
+      type: 'txt',
+      content: `Document ID: ${documentId}
+Attachment: ${attachmentName}
+Generated: ${new Date().toISOString()}
+
+Status: Autorizado
+Protocol: 135250000000001
+Authorization Date: 2025-03-15 10:31:00
+
+This is a text attachment containing processing details
+for the electronic document referenced above.
+
+---
+Sovos Tax Compliance Platform
+`,
+    }
+  }
+
+  if (ext === 'pdf') {
+    return { type: 'pdf', content: null, message: 'PDF preview not available. Please download the file.' }
+  }
+
+  return {
+    type: 'text',
+    content: `[Binary file: ${attachmentName}]\n\nPreview not available for this file type. Please download.`,
+  }
+}
+
 export async function fetchDocumentErrors(_documentId) {
   await new Promise((r) => setTimeout(r, 150))
   const errors = [
