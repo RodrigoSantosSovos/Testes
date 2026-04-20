@@ -1,9 +1,13 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { useI18n } from '../../i18n/useI18n'
-import { fetchDocumentTypes, fetchActions, fetchDynamicFilters, searchDocuments } from '../../services/documentService'
+import {
+  fetchDocumentTypes, fetchActions, fetchDynamicFilters,
+  searchDocuments, executeBatchAction, exportDocuments,
+} from '../../services/documentService'
 import FixedFilters from './components/FixedFilters'
 import DynamicFilters from './components/DynamicFilters'
 import ResultsTable from './components/ResultsTable'
+import DocumentDetail from './DocumentDetail'
 import './DocumentsPage.css'
 
 const INITIAL_FIXED = {
@@ -14,7 +18,7 @@ const INITIAL_FIXED = {
   historic: false,
 }
 
-function DocumentsPage() {
+function DocumentsPage({ userPermissions }) {
   const { t } = useI18n()
 
   const [docTypeOptions, setDocTypeOptions] = useState([])
@@ -22,10 +26,12 @@ function DocumentsPage() {
   const [dynamicFilterDefs, setDynamicFilterDefs] = useState([])
   const [fixed, setFixed] = useState(INITIAL_FIXED)
   const [dynamic, setDynamic] = useState({})
-  const [results, setResults] = useState(null)
+  const [data, setData] = useState(null)
   const [loading, setLoading] = useState(false)
+  const [filtersCollapsed, setFiltersCollapsed] = useState(false)
+  const [detailDocId, setDetailDocId] = useState(null)
+  const [alert, setAlert] = useState(null)
   const prevDocType = useRef('')
-  const prevProcess = useRef('')
 
   useEffect(() => {
     fetchDocumentTypes().then(setDocTypeOptions)
@@ -42,8 +48,12 @@ function DocumentsPage() {
     if (fixed.documentType && fixed.process) {
       fetchActions(fixed.documentType, fixed.process).then(setActionOptions)
     }
-    prevProcess.current = fixed.process
   }, [fixed.documentType, fixed.process])
+
+  const showAlert = useCallback((type, message) => {
+    setAlert({ type, message })
+    setTimeout(() => setAlert(null), 4000)
+  }, [])
 
   const handleFixedChange = useCallback((field, value) => {
     setFixed((prev) => {
@@ -52,7 +62,7 @@ function DocumentsPage() {
         next.action = ''
         next.process = ''
         setDynamic({})
-        setResults(null)
+        setData(null)
         setActionOptions([])
         if (!value) setDynamicFilterDefs([])
       }
@@ -72,7 +82,10 @@ function DocumentsPage() {
     e.preventDefault()
     setLoading(true)
     searchDocuments({ ...fixed, dynamicFilters: dynamic })
-      .then(setResults)
+      .then((result) => {
+        setData(result)
+        setFiltersCollapsed(true)
+      })
       .finally(() => setLoading(false))
   }, [fixed, dynamic])
 
@@ -81,37 +94,96 @@ function DocumentsPage() {
     setDynamic({})
     setDynamicFilterDefs([])
     setActionOptions([])
-    setResults(null)
+    setData(null)
+    setFiltersCollapsed(false)
   }, [])
+
+  const handleBatchAction = useCallback((ids, actionName) => {
+    executeBatchAction(ids, actionName).then((res) => {
+      showAlert('success', res.message)
+    })
+  }, [showAlert])
+
+  const handleExport = useCallback(() => {
+    exportDocuments(fixed).then((res) => showAlert('success', res.message))
+  }, [fixed, showAlert])
+
+  const handleOpenDetail = useCallback((id) => {
+    setDetailDocId(id)
+  }, [])
+
+  const handleBackToList = useCallback(() => {
+    setDetailDocId(null)
+  }, [])
+
+  if (detailDocId) {
+    return (
+      <DocumentDetail
+        documentId={detailDocId}
+        onBack={handleBackToList}
+        userPermissions={userPermissions}
+        actionOptions={actionOptions}
+      />
+    )
+  }
 
   return (
     <div className="documents-page">
+      {alert && (
+        <div className={`doc-alert ${alert.type}`}>
+          <span>{alert.message}</span>
+          <button className="alert-close" onClick={() => setAlert(null)}>×</button>
+        </div>
+      )}
+
       <form className="doc-filters-panel" onSubmit={handleSubmit}>
         <div className="doc-filters-header">
           <h2>{t.docs.filtersTitle}</h2>
-          <button type="button" className="ghost-btn" onClick={handleClear}>{t.docs.clearFilters}</button>
+          <div className="doc-filters-header-actions">
+            {filtersCollapsed && (
+              <button
+                type="button"
+                className="ghost-btn"
+                onClick={() => setFiltersCollapsed(false)}
+              >
+                {t.docs.showFilters}
+              </button>
+            )}
+            <button type="button" className="ghost-btn" onClick={handleClear}>{t.docs.clearFilters}</button>
+          </div>
         </div>
 
-        <FixedFilters
-          values={fixed}
-          onChange={handleFixedChange}
-          documentTypeOptions={docTypeOptions}
-          actionOptions={actionOptions}
-          t={t}
-          loading={loading}
-        />
+        {!filtersCollapsed && (
+          <>
+            <FixedFilters
+              values={fixed}
+              onChange={handleFixedChange}
+              documentTypeOptions={docTypeOptions}
+              actionOptions={actionOptions}
+              t={t}
+              loading={loading}
+            />
 
-        {dynamicFilterDefs.length > 0 && (
-          <DynamicFilters
-            filters={dynamicFilterDefs}
-            values={dynamic}
-            onChange={handleDynamicChange}
-            t={t}
-          />
+            {dynamicFilterDefs.length > 0 && (
+              <DynamicFilters
+                filters={dynamicFilterDefs}
+                values={dynamic}
+                onChange={handleDynamicChange}
+                t={t}
+              />
+            )}
+          </>
         )}
       </form>
 
-      <ResultsTable results={results} t={t} />
+      <ResultsTable
+        data={data}
+        t={t}
+        onOpenDetail={handleOpenDetail}
+        actionOptions={actionOptions}
+        onBatchAction={handleBatchAction}
+        onExport={handleExport}
+      />
     </div>
   )
 }

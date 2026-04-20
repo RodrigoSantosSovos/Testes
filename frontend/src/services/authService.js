@@ -7,6 +7,8 @@ const MOCK_USER = {
     'UI::Main::Menu_Settings',
     'UI::Main::Menu_Security',
     'UI::Main::Menu_ReceptionLog',
+    'UI::Main::Document_Support',
+    'UI::Main::Document_Delete',
   ],
 }
 

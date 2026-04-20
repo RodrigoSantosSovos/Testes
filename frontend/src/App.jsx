@@ -124,7 +124,7 @@ function DashboardShell({ t, user }) {
 
         {page === 'crud' && <CrudDemo />}
 
-        {page === 'documents' && <DocumentsPage />}
+        {page === 'documents' && <DocumentsPage userPermissions={user.permissions} />}
 
         {page !== 'dashboard' && page !== 'crud' && page !== 'documents' && (
           <PlaceholderPage
