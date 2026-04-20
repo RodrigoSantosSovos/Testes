@@ -10,7 +10,6 @@ export const menuConfig = [
     id: 'documents',
     labelKey: 'documents',
     icon: 'documents',
-    disabled: true,
     page: 'documents',
   },
   {

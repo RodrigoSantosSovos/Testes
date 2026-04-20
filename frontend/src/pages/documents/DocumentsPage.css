@@ -1,0 +1,220 @@
+.documents-page {
+  margin-top: 18px;
+}
+
+/* ---- filter panel ---- */
+.doc-filters-panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.doc-filters-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.doc-filters-header h2 {
+  margin: 0;
+  font-size: 17px;
+  color: var(--heading-color);
+}
+
+/* ---- fixed filters ---- */
+.doc-fixed-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: flex-end;
+}
+
+.doc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 180px;
+  flex: 1;
+}
+
+.doc-field-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.doc-field input,
+.doc-field select {
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-md);
+  padding: 9px 12px;
+  font-size: 13px;
+  color: var(--text-color);
+  background: var(--panel-bg);
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+
+.doc-field input:focus,
+.doc-field select:focus {
+  border-color: var(--primary);
+}
+
+.doc-field select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' stroke='%237e8299' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+}
+
+.doc-field-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-color);
+  cursor: pointer;
+  white-space: nowrap;
+  padding-bottom: 2px;
+}
+
+.doc-field-checkbox input {
+  accent-color: var(--primary);
+  width: 16px;
+  height: 16px;
+}
+
+.doc-search-btn {
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.doc-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---- dynamic filters ---- */
+.doc-dynamic-filters {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--panel-border);
+}
+
+.doc-dynamic-title {
+  margin: 0 0 14px;
+  font-size: 14px;
+  color: var(--heading-color);
+  font-weight: 600;
+}
+
+.doc-dynamic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+/* ---- range fields ---- */
+.doc-field-range .doc-range-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.doc-field-range .doc-range-row input {
+  flex: 1;
+  min-width: 0;
+}
+
+.doc-range-sep {
+  font-size: 12px;
+  color: var(--muted-text);
+  white-space: nowrap;
+}
+
+/* ---- radio fields ---- */
+.doc-field-radio {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  grid-column: 1 / -1;
+}
+
+.doc-radio-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.doc-radio-option {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.doc-radio-option input {
+  accent-color: var(--primary);
+}
+
+/* ---- results ---- */
+.doc-results {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-top: 16px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.doc-results h3 {
+  margin: 0 0 14px;
+  font-size: 15px;
+  color: var(--heading-color);
+}
+
+.doc-no-results {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--muted-text);
+  font-size: 14px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  margin-top: 16px;
+}
+
+/* ---- responsive ---- */
+@media (max-width: 900px) {
+  .doc-fixed-filters {
+    flex-direction: column;
+  }
+
+  .doc-field {
+    min-width: 0;
+  }
+
+  .doc-dynamic-grid {
+    grid-template-columns: 1fr;
+  }
+}

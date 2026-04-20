@@ -11,6 +11,7 @@ import RevenueSources from './components/dashboard/RevenueSources'
 import CampaignTable from './components/dashboard/CampaignTable'
 import ActivityList from './components/dashboard/ActivityList'
 import CrudDemo from './pages/CrudDemo'
+import DocumentsPage from './pages/documents/DocumentsPage'
 import PlaceholderPage from './pages/PlaceholderPage'
 import './pages/PlaceholderPage.css'
 import useDashboardData from './hooks/useDashboardData'
@@ -32,6 +33,7 @@ function App() {
 const PAGE_TITLES = {
   dashboard: (t) => ({ title: t.dashboard.title, subtitle: t.dashboard.subtitle }),
   crud: (t) => ({ title: t.crud.title, subtitle: t.crud.subtitle }),
+  documents: (t) => ({ title: t.menu.documents, subtitle: t.docs.filtersTitle }),
 }
 
 function DashboardShell({ t, user }) {
@@ -122,7 +124,9 @@ function DashboardShell({ t, user }) {
 
         {page === 'crud' && <CrudDemo />}
 
-        {page !== 'dashboard' && page !== 'crud' && (
+        {page === 'documents' && <DocumentsPage />}
+
+        {page !== 'dashboard' && page !== 'crud' && page !== 'documents' && (
           <PlaceholderPage
             title={pageMeta.title}
             description={t.placeholder?.comingSoon || 'Esta página será implementada em breve.'}
