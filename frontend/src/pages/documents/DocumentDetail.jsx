@@ -30,6 +30,7 @@ function DocumentDetail({ documentId, onBack, userPermissions, actionOptions }) 
   const [queueName, setQueueName] = useState('')
   const [preview, setPreview] = useState(null)
   const [previewLoading, setPreviewLoading] = useState(false)
+  const [copyFeedback, setCopyFeedback] = useState(false)
 
   const showAlert = useCallback((type, message) => {
     setAlert({ type, message })
@@ -73,6 +74,14 @@ function DocumentDetail({ documentId, onBack, userPermissions, actionOptions }) 
       setQueueName('')
     })
   }, [documentId, queueName, showAlert])
+
+  const handleCopyPreview = useCallback(() => {
+    if (!preview?.content) return
+    navigator.clipboard.writeText(preview.content).then(() => {
+      setCopyFeedback(true)
+      setTimeout(() => setCopyFeedback(false), 2000)
+    })
+  }, [preview])
 
   const handlePreview = useCallback((attachment) => {
     setPreviewLoading(true)
@@ -311,7 +320,27 @@ function DocumentDetail({ documentId, onBack, userPermissions, actionOptions }) 
                 </span>
                 <h3>{preview.name}</h3>
               </div>
-              <button className="preview-close" onClick={() => setPreview(null)}>✕</button>
+              <div className="preview-header-actions">
+                {preview.content && (
+                  <button
+                    className={`preview-copy-btn ${copyFeedback ? 'copied' : ''}`}
+                    onClick={handleCopyPreview}
+                  >
+                    {copyFeedback ? (
+                      <>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                        {dt.copied}
+                      </>
+                    ) : (
+                      <>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" strokeWidth="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" strokeWidth="2"/></svg>
+                        {dt.copy}
+                      </>
+                    )}
+                  </button>
+                )}
+                <button className="preview-close" onClick={() => setPreview(null)}>✕</button>
+              </div>
             </div>
             <div className="preview-body">
               {previewLoading && <div className="preview-loading">{dt.loading}</div>}

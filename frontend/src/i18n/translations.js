@@ -225,6 +225,7 @@ const translations = {
       cancel: 'Cancelar',
       copied: 'Copiado!',
       view: 'Visualizar',
+      copy: 'Copiar',
     },
 
     crud: {
@@ -507,6 +508,7 @@ const translations = {
       cancel: 'Cancel',
       copied: 'Copied!',
       view: 'View',
+      copy: 'Copy',
     },
 
     crud: {
@@ -789,6 +791,7 @@ const translations = {
       cancel: 'Cancelar',
       copied: '¡Copiado!',
       view: 'Visualizar',
+      copy: 'Copiar',
     },
 
     crud: {
