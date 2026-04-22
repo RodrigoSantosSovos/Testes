@@ -4,6 +4,25 @@ const translations = {
     footer: { rights: 'Todos os direitos reservados.' },
     placeholder: { comingSoon: 'Esta página será implementada em breve.' },
 
+    config: {
+      filters: 'Filtro',
+      showFilters: 'Mostrar Filtros',
+      company: 'Empresa',
+      companyPlaceholder: 'Buscar empresa...',
+      noResults: 'Nenhum resultado encontrado',
+      documentType: 'Tipo de Documento',
+      selectDocType: 'Selecione...',
+      companyCode: 'Código da Empresa',
+      selectCode: 'Selecione...',
+      filter: 'Filtrar',
+      saveAll: 'Salvar',
+      saveIndividual: 'Salvar individual',
+      savedOk: 'salvo com sucesso.',
+      saveError: 'Erro ao salvar.',
+      constantName: 'Descrição',
+      value: 'Valor',
+    },
+
     menu: {
       dashboard: 'Dashboard',
       documents: 'Documentos',
@@ -287,6 +306,25 @@ const translations = {
     footer: { rights: 'All rights reserved.' },
     placeholder: { comingSoon: 'This page will be implemented soon.' },
 
+    config: {
+      filters: 'Filter',
+      showFilters: 'Show Filters',
+      company: 'Company',
+      companyPlaceholder: 'Search company...',
+      noResults: 'No results found',
+      documentType: 'Document Type',
+      selectDocType: 'Select...',
+      companyCode: 'Company Code',
+      selectCode: 'Select...',
+      filter: 'Filter',
+      saveAll: 'Save',
+      saveIndividual: 'Save individual',
+      savedOk: 'saved successfully.',
+      saveError: 'Error saving.',
+      constantName: 'Description',
+      value: 'Value',
+    },
+
     menu: {
       dashboard: 'Dashboard',
       documents: 'Documents',
@@ -569,6 +607,25 @@ const translations = {
     lang: { pt: 'Português', en: 'English', es: 'Español' },
     footer: { rights: 'Todos los derechos reservados.' },
     placeholder: { comingSoon: 'Esta página se implementará próximamente.' },
+
+    config: {
+      filters: 'Filtro',
+      showFilters: 'Mostrar Filtros',
+      company: 'Empresa',
+      companyPlaceholder: 'Buscar empresa...',
+      noResults: 'Sin resultados',
+      documentType: 'Tipo de Documento',
+      selectDocType: 'Seleccione...',
+      companyCode: 'Código de Empresa',
+      selectCode: 'Seleccione...',
+      filter: 'Filtrar',
+      saveAll: 'Guardar',
+      saveIndividual: 'Guardar individual',
+      savedOk: 'guardado con éxito.',
+      saveError: 'Error al guardar.',
+      constantName: 'Descripción',
+      value: 'Valor',
+    },
 
     menu: {
       dashboard: 'Dashboard',

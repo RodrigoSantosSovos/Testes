@@ -12,6 +12,7 @@ import CampaignTable from './components/dashboard/CampaignTable'
 import ActivityList from './components/dashboard/ActivityList'
 import CrudDemo from './pages/CrudDemo'
 import DocumentsPage from './pages/documents/DocumentsPage'
+import GeneralConfigPage from './pages/configuration/GeneralConfigPage'
 import PlaceholderPage from './pages/PlaceholderPage'
 import './pages/PlaceholderPage.css'
 import useDashboardData from './hooks/useDashboardData'
@@ -34,6 +35,7 @@ const PAGE_TITLES = {
   dashboard: (t) => ({ title: t.dashboard.title, subtitle: t.dashboard.subtitle }),
   crud: (t) => ({ title: t.crud.title, subtitle: t.crud.subtitle }),
   documents: (t) => ({ title: t.menu.documents, subtitle: t.docs.filtersTitle }),
+  'config-general': (t) => ({ title: t.menu.configGeneral, subtitle: `${t.menu.configuration} > ${t.menu.configGeneral}` }),
 }
 
 function DashboardShell({ t, user }) {
@@ -126,7 +128,9 @@ function DashboardShell({ t, user }) {
 
         {page === 'documents' && <DocumentsPage userPermissions={user.permissions} />}
 
-        {page !== 'dashboard' && page !== 'crud' && page !== 'documents' && (
+        {page === 'config-general' && <GeneralConfigPage />}
+
+        {!['dashboard', 'crud', 'documents', 'config-general'].includes(page) && (
           <PlaceholderPage
             title={pageMeta.title}
             description={t.placeholder?.comingSoon || 'Esta página será implementada em breve.'}
