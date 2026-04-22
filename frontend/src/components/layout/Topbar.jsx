@@ -40,8 +40,14 @@ function Topbar({ title, subtitle, searchPlaceholder, actionLabel, onMenuClick }
         </div>
       </div>
       <div className="topbar-actions">
-        <input type="text" placeholder={searchPlaceholder} />
-        <button className="primary-btn">{actionLabel}</button>
+        <div className="topbar-search-wrap">
+          <svg className="topbar-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2" />
+            <path d="M21 21l-4.35-4.35" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+          <input type="text" placeholder={searchPlaceholder} />
+        </div>
+        {actionLabel && <button className="primary-btn">{actionLabel}</button>}
 
         <button
           className="theme-toggle"

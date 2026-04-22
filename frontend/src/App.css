@@ -237,14 +237,32 @@
   align-items: center;
 }
 
+.topbar-search-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.topbar-search-icon {
+  position: absolute;
+  left: 10px;
+  color: var(--muted-text);
+  pointer-events: none;
+}
+
 .topbar-actions input {
   border: 1px solid var(--input-border);
   border-radius: var(--radius-md);
-  padding: 10px 12px;
+  padding: 10px 12px 10px 34px;
   min-width: 220px;
   outline: none;
   color: var(--text-color);
   background: var(--panel-bg);
+  transition: border-color 0.15s;
+}
+
+.topbar-actions input:focus {
+  border-color: var(--primary);
 }
 
 .primary-btn,
