@@ -87,6 +87,21 @@ const translations = {
       hasDependencies: 'Este parceiro possui dependências:', depCompanies: 'empresa(s)', depUsers: 'usuário(s)', depWorkflows: 'workflow(s)',
     },
 
+    company: {
+      companies: 'Empresas', addCompany: 'Adicionar', editCompany: 'Editar Empresa', back: 'Voltar', save: 'Salvar', add: 'Adicionar',
+      nameLabel: 'Nome', creationDate: 'Data Criação', partnerNameLabel: 'Parceiro', searchCodeLabel: 'Código Busca', actions: 'Ações', edit: 'Editar', deleteLabel: 'Excluir', cancel: 'Cancelar',
+      noCompanies: 'Nenhuma empresa encontrada.', searchPlaceholder: 'Buscar empresa...', loading: 'Carregando...',
+      confirmDelete: 'Confirmar Exclusão', confirmDeleteMsg: 'Deseja remover esta empresa?',
+      requiredFields: 'Company ID e Nome são obrigatórios.', created: 'Empresa criada.', updated: 'Empresa atualizada.', deleted: 'Empresa removida.', saveError: 'Erro ao salvar.',
+      tabCompany: 'Empresa', tabCompanyCode: 'Código Empresa', tabCompanyBranch: 'Filial',
+      documentType: 'Tipo Documento', codeLabel: 'Código', selectDocType: 'Selecione o tipo...',
+      companyCodePlaceholder: 'Código...', noCodes: 'Nenhum código cadastrado.', codeAdded: 'Código adicionado.', codeDeleted: 'Código removido.',
+      confirmDeleteCodeMsg: 'Excluir código (e todas as configurações associadas)?', cascadeWarning: 'Constantes, regras de impressão, distribuição e contingência serão excluídas.',
+      branchCodePlaceholder: 'Código filial...', branchNamePlaceholder: 'Nome filial...', branchName: 'Nome',
+      noBranches: 'Nenhuma filial cadastrada.', branchAdded: 'Filial adicionada.', branchUpdated: 'Filial atualizada.', branchDeleted: 'Filial removida.',
+      confirmDeleteBranchMsg: 'Deseja remover esta filial?',
+    },
+
     menu: {
       dashboard: 'Dashboard',
       documents: 'Documentos',
@@ -453,6 +468,21 @@ const translations = {
       hasDependencies: 'This partner has dependencies:', depCompanies: 'company(ies)', depUsers: 'user(s)', depWorkflows: 'workflow(s)',
     },
 
+    company: {
+      companies: 'Companies', addCompany: 'Add', editCompany: 'Edit Company', back: 'Back', save: 'Save', add: 'Add',
+      nameLabel: 'Name', creationDate: 'Creation Date', partnerNameLabel: 'Partner', searchCodeLabel: 'Search Code', actions: 'Actions', edit: 'Edit', deleteLabel: 'Delete', cancel: 'Cancel',
+      noCompanies: 'No companies found.', searchPlaceholder: 'Search company...', loading: 'Loading...',
+      confirmDelete: 'Confirm Deletion', confirmDeleteMsg: 'Do you want to remove this company?',
+      requiredFields: 'Company ID and Name are required.', created: 'Company created.', updated: 'Company updated.', deleted: 'Company removed.', saveError: 'Error saving.',
+      tabCompany: 'Company', tabCompanyCode: 'Company Code', tabCompanyBranch: 'Company Branch',
+      documentType: 'Document Type', codeLabel: 'Code', selectDocType: 'Select type...',
+      companyCodePlaceholder: 'Code...', noCodes: 'No codes registered.', codeAdded: 'Code added.', codeDeleted: 'Code removed.',
+      confirmDeleteCodeMsg: 'Delete code (and all associated configurations)?', cascadeWarning: 'Constants, print rules, distribution rules and contingency rules will be deleted.',
+      branchCodePlaceholder: 'Branch code...', branchNamePlaceholder: 'Branch name...', branchName: 'Name',
+      noBranches: 'No branches registered.', branchAdded: 'Branch added.', branchUpdated: 'Branch updated.', branchDeleted: 'Branch removed.',
+      confirmDeleteBranchMsg: 'Do you want to remove this branch?',
+    },
+
     menu: {
       dashboard: 'Dashboard',
       documents: 'Documents',
@@ -817,6 +847,21 @@ const translations = {
       created: 'Socio creado con éxito.', updated: 'Socio actualizado con éxito.', deleted: 'Socio eliminado con éxito.',
       saveError: 'Error al guardar.', deleteFkError: 'No se puede eliminar: el socio tiene dependencias.',
       hasDependencies: 'Este socio tiene dependencias:', depCompanies: 'empresa(s)', depUsers: 'usuario(s)', depWorkflows: 'workflow(s)',
+    },
+
+    company: {
+      companies: 'Empresas', addCompany: 'Agregar', editCompany: 'Editar Empresa', back: 'Volver', save: 'Guardar', add: 'Agregar',
+      nameLabel: 'Nombre', creationDate: 'Fecha Creación', partnerNameLabel: 'Socio', searchCodeLabel: 'Código Búsqueda', actions: 'Acciones', edit: 'Editar', deleteLabel: 'Eliminar', cancel: 'Cancelar',
+      noCompanies: 'No se encontraron empresas.', searchPlaceholder: 'Buscar empresa...', loading: 'Cargando...',
+      confirmDelete: 'Confirmar Eliminación', confirmDeleteMsg: '¿Desea eliminar esta empresa?',
+      requiredFields: 'Company ID y Nombre son obligatorios.', created: 'Empresa creada.', updated: 'Empresa actualizada.', deleted: 'Empresa eliminada.', saveError: 'Error al guardar.',
+      tabCompany: 'Empresa', tabCompanyCode: 'Código Empresa', tabCompanyBranch: 'Sucursal',
+      documentType: 'Tipo Documento', codeLabel: 'Código', selectDocType: 'Seleccione el tipo...',
+      companyCodePlaceholder: 'Código...', noCodes: 'Sin códigos registrados.', codeAdded: 'Código agregado.', codeDeleted: 'Código eliminado.',
+      confirmDeleteCodeMsg: '¿Eliminar código (y todas las configuraciones asociadas)?', cascadeWarning: 'Constantes, reglas de impresión, distribución y contingencia serán eliminadas.',
+      branchCodePlaceholder: 'Código sucursal...', branchNamePlaceholder: 'Nombre sucursal...', branchName: 'Nombre',
+      noBranches: 'Sin sucursales registradas.', branchAdded: 'Sucursal agregada.', branchUpdated: 'Sucursal actualizada.', branchDeleted: 'Sucursal eliminada.',
+      confirmDeleteBranchMsg: '¿Desea eliminar esta sucursal?',
     },
 
     menu: {
