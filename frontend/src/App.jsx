@@ -18,6 +18,7 @@ import RuleDistributionPage from './pages/configuration/RuleDistributionPage'
 import PartnerPage from './pages/security/PartnerPage'
 import CompanyPage from './pages/security/CompanyPage'
 import UserPage from './pages/security/UserPage'
+import BusinessGroupPage from './pages/security/BusinessGroupPage'
 import PlaceholderPage from './pages/PlaceholderPage'
 import './pages/PlaceholderPage.css'
 import useDashboardData from './hooks/useDashboardData'
@@ -46,6 +47,7 @@ const PAGE_TITLES = {
   'sec-partner': (t) => ({ title: t.menu.secPartner, subtitle: `${t.menu.security} > ${t.menu.secPartner}` }),
   'sec-companies': (t) => ({ title: t.menu.secCompanies, subtitle: `${t.menu.security} > ${t.menu.secCompanies}` }),
   'sec-users': (t) => ({ title: t.menu.secUsers, subtitle: `${t.menu.security} > ${t.menu.secUsers}` }),
+  'sec-business-group': (t) => ({ title: t.menu.secBusinessGroup, subtitle: `${t.menu.security} > ${t.menu.secBusinessGroup}` }),
 }
 
 function DashboardShell({ t, user }) {
@@ -150,7 +152,9 @@ function DashboardShell({ t, user }) {
 
         {page === 'sec-users' && <UserPage />}
 
-        {!['dashboard', 'crud', 'documents', 'config-general', 'config-rule-print', 'config-rule-distribution', 'sec-partner', 'sec-companies', 'sec-users'].includes(page) && (
+        {page === 'sec-business-group' && <BusinessGroupPage />}
+
+        {!['dashboard', 'crud', 'documents', 'config-general', 'config-rule-print', 'config-rule-distribution', 'sec-partner', 'sec-companies', 'sec-users', 'sec-business-group'].includes(page) && (
           <PlaceholderPage
             title={pageMeta.title}
             description={t.placeholder?.comingSoon || 'Esta página será implementada em breve.'}

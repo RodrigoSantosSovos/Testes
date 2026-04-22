@@ -120,6 +120,18 @@ const translations = {
       errors: { EMAIL_REQUIRED: 'E-mail obrigatório.', EMAIL_INVALID: 'E-mail inválido.', EMAIL_DUPLICATE: 'E-mail já em uso.', NAME_REQUIRED: 'Nome obrigatório.', PHONE_REQUIRED: 'Telefone obrigatório.', PASSWORD_WEAK: 'Senha não atende requisitos.', PASSWORD_MISMATCH: 'Senhas não conferem.' },
     },
 
+    businessGroup: {
+      groups: 'Grupos Empresariais', addGroup: 'Adicionar', editGroup: 'Editar Grupo', back: 'Voltar', save: 'Salvar',
+      name: 'Nome', description: 'Descrição', actions: 'Ações', edit: 'Editar', loading: 'Carregando...', noGroups: 'Nenhum grupo encontrado.',
+      tabGroup: 'Grupo Empresarial', tabAuthorizations: 'Autorizações',
+      selectAuthorization: 'Selecione autorização...', addAuth: 'Adicionar', removeAuth: 'Remover',
+      authName: 'Nome', authDescription: 'Descrição', noAuthorizations: 'Nenhuma autorização atribuída.',
+      allAssigned: 'Todas as autorizações já foram atribuídas.',
+      confirmRemoveAuth: 'Remover Autorização', confirmRemoveAuthMsg: 'Deseja remover a autorização', cancel: 'Cancelar',
+      requiredFields: 'Nome e Descrição são obrigatórios.', created: 'Grupo criado.', updated: 'Grupo atualizado.', saveError: 'Erro ao salvar.',
+      authAdded: 'Autorização adicionada.', authRemoved: 'Autorização removida.',
+    },
+
     menu: {
       dashboard: 'Dashboard',
       documents: 'Documentos',
@@ -519,6 +531,18 @@ const translations = {
       errors: { EMAIL_REQUIRED: 'Email required.', EMAIL_INVALID: 'Invalid email.', EMAIL_DUPLICATE: 'Email already in use.', NAME_REQUIRED: 'Name required.', PHONE_REQUIRED: 'Phone required.', PASSWORD_WEAK: 'Password does not meet requirements.', PASSWORD_MISMATCH: 'Passwords do not match.' },
     },
 
+    businessGroup: {
+      groups: 'Business Groups', addGroup: 'Add', editGroup: 'Edit Group', back: 'Back', save: 'Save',
+      name: 'Name', description: 'Description', actions: 'Actions', edit: 'Edit', loading: 'Loading...', noGroups: 'No groups found.',
+      tabGroup: 'Business Group', tabAuthorizations: 'Authorizations',
+      selectAuthorization: 'Select authorization...', addAuth: 'Add', removeAuth: 'Remove',
+      authName: 'Name', authDescription: 'Description', noAuthorizations: 'No authorizations assigned.',
+      allAssigned: 'All authorizations have been assigned.',
+      confirmRemoveAuth: 'Remove Authorization', confirmRemoveAuthMsg: 'Do you want to remove authorization', cancel: 'Cancel',
+      requiredFields: 'Name and Description are required.', created: 'Group created.', updated: 'Group updated.', saveError: 'Error saving.',
+      authAdded: 'Authorization added.', authRemoved: 'Authorization removed.',
+    },
+
     menu: {
       dashboard: 'Dashboard',
       documents: 'Documents',
@@ -916,6 +940,18 @@ const translations = {
       selectCompany: 'Seleccione empresa...', addCompany: 'Agregar', companyName: 'Empresa', noCompanies: 'Sin empresas asignadas.',
       companyAdded: 'Empresa asignada.', companyRemoved: 'Empresa eliminada.', companyAlreadyAssigned: 'Empresa ya asignada.',
       errors: { EMAIL_REQUIRED: 'Correo obligatorio.', EMAIL_INVALID: 'Correo inválido.', EMAIL_DUPLICATE: 'Correo en uso.', NAME_REQUIRED: 'Nombre obligatorio.', PHONE_REQUIRED: 'Teléfono obligatorio.', PASSWORD_WEAK: 'Contraseña no cumple requisitos.', PASSWORD_MISMATCH: 'Contraseñas no coinciden.' },
+    },
+
+    businessGroup: {
+      groups: 'Grupos Empresariales', addGroup: 'Agregar', editGroup: 'Editar Grupo', back: 'Volver', save: 'Guardar',
+      name: 'Nombre', description: 'Descripción', actions: 'Acciones', edit: 'Editar', loading: 'Cargando...', noGroups: 'No se encontraron grupos.',
+      tabGroup: 'Grupo Empresarial', tabAuthorizations: 'Autorizaciones',
+      selectAuthorization: 'Seleccione autorización...', addAuth: 'Agregar', removeAuth: 'Eliminar',
+      authName: 'Nombre', authDescription: 'Descripción', noAuthorizations: 'Sin autorizaciones asignadas.',
+      allAssigned: 'Todas las autorizaciones fueron asignadas.',
+      confirmRemoveAuth: 'Eliminar Autorización', confirmRemoveAuthMsg: '¿Desea eliminar la autorización', cancel: 'Cancelar',
+      requiredFields: 'Nombre y Descripción son obligatorios.', created: 'Grupo creado.', updated: 'Grupo actualizado.', saveError: 'Error al guardar.',
+      authAdded: 'Autorización agregada.', authRemoved: 'Autorización eliminada.',
     },
 
     menu: {
