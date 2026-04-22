@@ -53,7 +53,6 @@ export const menuConfig = [
     id: 'idoc-generation',
     labelKey: 'idocGeneration',
     icon: 'idoc',
-    disabled: true,
     page: 'idoc-generation',
   },
   {

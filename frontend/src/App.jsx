@@ -21,6 +21,7 @@ import PartnerPage from './pages/security/PartnerPage'
 import CompanyPage from './pages/security/CompanyPage'
 import UserPage from './pages/security/UserPage'
 import BusinessGroupPage from './pages/security/BusinessGroupPage'
+import IdocGeneratorPage from './pages/idoc/IdocGeneratorPage'
 import PlaceholderPage from './pages/PlaceholderPage'
 import './pages/PlaceholderPage.css'
 import useDashboardData from './hooks/useDashboardData'
@@ -50,6 +51,7 @@ const PAGE_TITLES = {
   'sec-companies': (t) => ({ title: t.menu.secCompanies, subtitle: `${t.menu.security} > ${t.menu.secCompanies}` }),
   'sec-users': (t) => ({ title: t.menu.secUsers, subtitle: `${t.menu.security} > ${t.menu.secUsers}` }),
   'sec-business-group': (t) => ({ title: t.menu.secBusinessGroup, subtitle: `${t.menu.security} > ${t.menu.secBusinessGroup}` }),
+  'idoc-generation': () => ({ title: 'Geração de IDoc', subtitle: 'Gerador e Editor de IDOC NFSe SAP' }),
 }
 
 function DashboardShell({ t, user }) {
@@ -161,7 +163,9 @@ function DashboardShell({ t, user }) {
 
         {page === 'sec-business-group' && <BusinessGroupPage />}
 
-        {!['dashboard', 'crud', 'documents', 'config-general', 'config-rule-print', 'config-rule-distribution', 'sec-partner', 'sec-companies', 'sec-users', 'sec-business-group'].includes(page) && (
+        {page === 'idoc-generation' && <IdocGeneratorPage />}
+
+        {!['dashboard', 'crud', 'documents', 'config-general', 'config-rule-print', 'config-rule-distribution', 'sec-partner', 'sec-companies', 'sec-users', 'sec-business-group', 'idoc-generation'].includes(page) && (
           <PlaceholderPage
             title={pageMeta.title}
             description={t.placeholder?.comingSoon || 'Esta página será implementada em breve.'}
