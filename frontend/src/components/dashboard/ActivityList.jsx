@@ -1,12 +1,15 @@
-function ActivityList({ activities }) {
+function RecentErrors({ data }) {
+  if (!data || !data.length) return null
+
   return (
     <ul className="activity-list">
-      {activities.map((item) => (
-        <li key={item.title}>
-          <span className={`dot ${item.color}`} />
+      {data.map((item) => (
+        <li key={item.id}>
+          <span className={`dot ${item.severity}`} />
           <div>
-            <p>{item.title}</p>
-            <small>{item.time}</small>
+            <p><strong>{item.company}</strong> — {item.docType}</p>
+            <small>{item.error}</small>
+            <small className="error-time">{item.time}</small>
           </div>
         </li>
       ))}
@@ -14,4 +17,4 @@ function ActivityList({ activities }) {
   )
 }
 
-export default ActivityList
+export default RecentErrors

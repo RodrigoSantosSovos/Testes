@@ -7,9 +7,11 @@ import Topbar from './components/layout/Topbar'
 import Panel from './components/common/Panel'
 import MetricGrid from './components/dashboard/MetricGrid'
 import PerformanceChart from './components/dashboard/PerformanceChart'
-import RevenueSources from './components/dashboard/RevenueSources'
-import CampaignTable from './components/dashboard/CampaignTable'
-import ActivityList from './components/dashboard/ActivityList'
+import ErrorsByDocType from './components/dashboard/RevenueSources'
+import TopDocTypesTable from './components/dashboard/CampaignTable'
+import RecentErrors from './components/dashboard/ActivityList'
+import ErrorsByCompany from './components/dashboard/ErrorsByCompany'
+import SuccessRateRing from './components/dashboard/SuccessRateRing'
 import CrudDemo from './pages/CrudDemo'
 import DocumentsPage from './pages/documents/DocumentsPage'
 import GeneralConfigPage from './pages/configuration/GeneralConfigPage'
@@ -38,7 +40,7 @@ function App() {
 }
 
 const PAGE_TITLES = {
-  dashboard: (t) => ({ title: t.dashboard.title, subtitle: t.dashboard.subtitle }),
+  dashboard: (t) => ({ title: t.dashboard?.title || 'Dashboard', subtitle: t.dashboard?.subtitle || '' }),
   crud: (t) => ({ title: t.crud.title, subtitle: t.crud.subtitle }),
   documents: (t) => ({ title: t.menu.documents, subtitle: t.docs.filtersTitle }),
   'config-general': (t) => ({ title: t.menu.configGeneral, subtitle: `${t.menu.configuration} > ${t.menu.configGeneral}` }),
@@ -51,12 +53,8 @@ const PAGE_TITLES = {
 }
 
 function DashboardShell({ t, user }) {
-  const {
-    metricCards,
-    revenueSources,
-    campaignRows,
-    activities,
-  } = useDashboardData()
+  const { data: dashData, loading: dashLoading } = useDashboardData()
+  const d = t.dash
 
   const menuItems = useMenuItems(user.permissions || [])
 
@@ -110,27 +108,36 @@ function DashboardShell({ t, user }) {
           onMenuClick={toggleMobileOpen}
         />
 
-        {page === 'dashboard' && (
+        {page === 'dashboard' && !dashLoading && dashData && (
           <>
-            <MetricGrid metrics={metricCards} />
+            <MetricGrid metrics={[
+              { title: d.totalProcessed, value: dashData.kpis.totalProcessed.toLocaleString(), delta: dashData.kpis.totalProcessedDelta, tone: 'primary' },
+              { title: d.totalErrors, value: dashData.kpis.totalErrors.toLocaleString(), delta: dashData.kpis.totalErrorsDelta, tone: 'danger' },
+              { title: d.successRate, value: `${dashData.kpis.successRate}%`, delta: dashData.kpis.successRateDelta, tone: 'success' },
+              { title: d.avgTime, value: `${dashData.kpis.avgProcessingTime}s`, delta: dashData.kpis.avgProcessingTimeDelta, tone: 'warning' },
+            ]} />
             <section className="content-grid">
-              <Panel
-                title={t.dashboard.performanceOverview}
-                className="panel-large"
-                action={<button className="ghost-btn">{t.dashboard.export}</button>}
-              >
-                <PerformanceChart />
+              <Panel title={d.docsPerDay} className="panel-large">
+                <PerformanceChart data={dashData.documentsPerDay} t={d} />
               </Panel>
-              <Panel title={t.dashboard.revenueSources}>
-                <RevenueSources sources={revenueSources} />
+              <Panel title={d.successRateTitle}>
+                <SuccessRateRing rate={dashData.kpis.successRate} />
               </Panel>
             </section>
             <section className="content-grid">
-              <Panel title={t.dashboard.campaignPerformance} className="panel-large">
-                <CampaignTable rows={campaignRows} />
+              <Panel title={d.errorsByCompany} className="panel-large">
+                <ErrorsByCompany data={dashData.errorsByCompany} t={d} />
               </Panel>
-              <Panel title={t.dashboard.recentActivity}>
-                <ActivityList activities={activities} />
+              <Panel title={d.errorsByDocType}>
+                <ErrorsByDocType data={dashData.errorsByDocType} />
+              </Panel>
+            </section>
+            <section className="content-grid">
+              <Panel title={d.topDocTypes} className="panel-large">
+                <TopDocTypesTable data={dashData.topDocumentTypes} t={d} />
+              </Panel>
+              <Panel title={d.recentErrors}>
+                <RecentErrors data={dashData.recentErrors} />
               </Panel>
             </section>
           </>

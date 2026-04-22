@@ -556,6 +556,53 @@ tbody td {
   font-size: 12px;
 }
 
+.error-time {
+  display: block;
+  color: var(--muted-text);
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+.error-doctype-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error-count {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--danger);
+}
+
+.chart-legend {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.chart-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted-text);
+}
+
+.chart-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+}
+
+.success-ring-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 0;
+}
+
 .app-footer {
   margin-top: 32px;
   padding: 16px 0;
