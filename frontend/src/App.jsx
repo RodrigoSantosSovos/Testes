@@ -22,6 +22,10 @@ import CompanyPage from './pages/security/CompanyPage'
 import UserPage from './pages/security/UserPage'
 import BusinessGroupPage from './pages/security/BusinessGroupPage'
 import IdocGeneratorPage from './pages/idoc/IdocGeneratorPage'
+import UtilitySearchPage from './pages/utilities/UtilitySearchPage'
+import UtilityExportPage from './pages/utilities/UtilityExportPage'
+import UtilityCountryOpsPage from './pages/utilities/UtilityCountryOpsPage'
+import UtilityQueuePage from './pages/utilities/UtilityQueuePage'
 import PlaceholderPage from './pages/PlaceholderPage'
 import './pages/PlaceholderPage.css'
 import useDashboardData from './hooks/useDashboardData'
@@ -52,6 +56,10 @@ const PAGE_TITLES = {
   'sec-users': (t) => ({ title: t.menu.secUsers, subtitle: `${t.menu.security} > ${t.menu.secUsers}` }),
   'sec-business-group': (t) => ({ title: t.menu.secBusinessGroup, subtitle: `${t.menu.security} > ${t.menu.secBusinessGroup}` }),
   'idoc-generation': () => ({ title: 'Geração de IDoc', subtitle: 'Gerador e Editor de IDOC NFSe SAP' }),
+  'util-search': (t) => ({ title: t.menu.utilSearch, subtitle: `${t.menu.utilities} > ${t.menu.utilSearch}` }),
+  'util-export': (t) => ({ title: t.menu.utilExport, subtitle: `${t.menu.utilities} > ${t.menu.utilExport}` }),
+  'util-country': (t) => ({ title: t.menu.utilCountry, subtitle: `${t.menu.utilities} > ${t.menu.utilCountry}` }),
+  'util-queue': (t) => ({ title: t.menu.utilQueue, subtitle: `${t.menu.utilities} > ${t.menu.utilQueue}` }),
 }
 
 function DashboardShell({ t, user }) {
@@ -165,7 +173,12 @@ function DashboardShell({ t, user }) {
 
         {page === 'idoc-generation' && <IdocGeneratorPage />}
 
-        {!['dashboard', 'crud', 'documents', 'config-general', 'config-rule-print', 'config-rule-distribution', 'sec-partner', 'sec-companies', 'sec-users', 'sec-business-group', 'idoc-generation'].includes(page) && (
+        {page === 'util-search' && <UtilitySearchPage />}
+        {page === 'util-export' && <UtilityExportPage />}
+        {page === 'util-country' && <UtilityCountryOpsPage />}
+        {page === 'util-queue' && <UtilityQueuePage />}
+
+        {!['dashboard', 'crud', 'documents', 'config-general', 'config-rule-print', 'config-rule-distribution', 'sec-partner', 'sec-companies', 'sec-users', 'sec-business-group', 'idoc-generation', 'util-search', 'util-export', 'util-country', 'util-queue'].includes(page) && (
           <PlaceholderPage
             title={pageMeta.title}
             description={t.placeholder?.comingSoon || 'Esta página será implementada em breve.'}

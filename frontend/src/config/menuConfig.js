@@ -59,7 +59,11 @@ export const menuConfig = [
     id: 'utilities',
     labelKey: 'utilities',
     icon: 'utilities',
-    disabled: true,
-    page: 'utilities',
+    children: [
+      { id: 'util-search', labelKey: 'utilSearch', page: 'util-search' },
+      { id: 'util-export', labelKey: 'utilExport', page: 'util-export' },
+      { id: 'util-country', labelKey: 'utilCountry', page: 'util-country' },
+      { id: 'util-queue', labelKey: 'utilQueue', page: 'util-queue' },
+    ],
   },
 ]
