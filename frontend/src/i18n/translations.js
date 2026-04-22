@@ -75,6 +75,18 @@ const translations = {
       company: 'Empresa', documentType: 'Tipo de Documento', companyCode: 'Código da Empresa',
     },
 
+    partner: {
+      partners: 'Parceiros', addPartner: 'Adicionar', editPartner: 'Editar Parceiro', back: 'Voltar', save: 'Salvar',
+      name: 'Nome', actions: 'Ações', edit: 'Editar', deletePartner: 'Excluir',
+      noPartners: 'Nenhum parceiro encontrado.', searchPlaceholder: 'Buscar parceiro...',
+      loading: 'Carregando...',
+      confirmDelete: 'Confirmar Exclusão', confirmDeleteMsg: 'Deseja remover o parceiro', cancel: 'Cancelar',
+      nameRequired: 'O campo Nome é obrigatório.',
+      created: 'Parceiro criado com sucesso.', updated: 'Parceiro atualizado com sucesso.', deleted: 'Parceiro removido com sucesso.',
+      saveError: 'Erro ao salvar.', deleteFkError: 'Não foi possível excluir: parceiro possui dependências.',
+      hasDependencies: 'Este parceiro possui dependências:', depCompanies: 'empresa(s)', depUsers: 'usuário(s)', depWorkflows: 'workflow(s)',
+    },
+
     menu: {
       dashboard: 'Dashboard',
       documents: 'Documentos',
@@ -429,6 +441,18 @@ const translations = {
       company: 'Company', documentType: 'Document Type', companyCode: 'Company Code',
     },
 
+    partner: {
+      partners: 'Partners', addPartner: 'Add', editPartner: 'Edit Partner', back: 'Back', save: 'Save',
+      name: 'Name', actions: 'Actions', edit: 'Edit', deletePartner: 'Delete',
+      noPartners: 'No partners found.', searchPlaceholder: 'Search partner...',
+      loading: 'Loading...',
+      confirmDelete: 'Confirm Deletion', confirmDeleteMsg: 'Do you want to remove the partner', cancel: 'Cancel',
+      nameRequired: 'Name is required.',
+      created: 'Partner created successfully.', updated: 'Partner updated successfully.', deleted: 'Partner removed successfully.',
+      saveError: 'Error saving.', deleteFkError: 'Cannot delete: partner has dependencies.',
+      hasDependencies: 'This partner has dependencies:', depCompanies: 'company(ies)', depUsers: 'user(s)', depWorkflows: 'workflow(s)',
+    },
+
     menu: {
       dashboard: 'Dashboard',
       documents: 'Documents',
@@ -781,6 +805,18 @@ const translations = {
       confirmDelete: 'Confirmar Eliminación', confirmDeleteMsg: '¿Desea eliminar la regla', cancel: 'Cancelar',
       requiredFields: 'Complete los campos obligatorios.', ruleCreated: 'Regla creada. Configure los canales en las pestañas.', ruleDeleted: 'Regla eliminada.', ruleExists: 'La regla ya existe.', saveError: 'Error al guardar.', tabSaved: 'Pestaña guardada con éxito.',
       company: 'Empresa', documentType: 'Tipo de Documento', companyCode: 'Código de Empresa',
+    },
+
+    partner: {
+      partners: 'Socios', addPartner: 'Agregar', editPartner: 'Editar Socio', back: 'Volver', save: 'Guardar',
+      name: 'Nombre', actions: 'Acciones', edit: 'Editar', deletePartner: 'Eliminar',
+      noPartners: 'No se encontraron socios.', searchPlaceholder: 'Buscar socio...',
+      loading: 'Cargando...',
+      confirmDelete: 'Confirmar Eliminación', confirmDeleteMsg: '¿Desea eliminar el socio', cancel: 'Cancelar',
+      nameRequired: 'El nombre es obligatorio.',
+      created: 'Socio creado con éxito.', updated: 'Socio actualizado con éxito.', deleted: 'Socio eliminado con éxito.',
+      saveError: 'Error al guardar.', deleteFkError: 'No se puede eliminar: el socio tiene dependencias.',
+      hasDependencies: 'Este socio tiene dependencias:', depCompanies: 'empresa(s)', depUsers: 'usuario(s)', depWorkflows: 'workflow(s)',
     },
 
     menu: {
