@@ -102,6 +102,24 @@ const translations = {
       confirmDeleteBranchMsg: 'Deseja remover esta filial?',
     },
 
+    userPage: {
+      users: 'Usuários', addUser: 'Adicionar', editUser: 'Editar Usuário', back: 'Voltar', save: 'Salvar',
+      group: 'Grupo', name: 'Nome', phone: 'Telefone', mobile: 'Celular', password: 'Senha', confirmPassword: 'Confirmar Senha',
+      approved: 'Aprovado', lockedOut: 'Bloqueado', lastLogin: 'Último Login', actions: 'Ações', edit: 'Editar', deleteUser: 'Excluir',
+      lock: 'Bloquear', unlock: 'Desbloquear', yes: 'Sim', no: 'Não',
+      noUsers: 'Nenhum usuário encontrado.', searchPlaceholder: 'Buscar usuário...', loading: 'Carregando...',
+      confirmDelete: 'Confirmar Exclusão', confirmDeleteMsg: 'Deseja excluir o usuário',
+      confirmLock: 'Bloquear Usuário', confirmLockMsg: 'Deseja bloquear o usuário',
+      confirmUnlock: 'Desbloquear Usuário', confirmUnlockMsg: 'Deseja desbloquear o usuário',
+      cancel: 'Cancelar', confirm: 'Confirmar', remove: 'Remover',
+      created: 'Usuário criado.', updated: 'Usuário atualizado.', deleted: 'Usuário excluído.', locked: 'Usuário bloqueado.', unlocked: 'Usuário desbloqueado.',
+      passwordHint: '10-24 caracteres: 1 maiúscula, 1 minúscula, 1 número, 1 especial',
+      tabUser: 'Usuário', tabCompanyUser: 'Empresas do Usuário',
+      selectCompany: 'Selecione empresa...', addCompany: 'Adicionar', companyName: 'Empresa', noCompanies: 'Nenhuma empresa associada.',
+      companyAdded: 'Empresa associada.', companyRemoved: 'Empresa removida.', companyAlreadyAssigned: 'Empresa já associada.',
+      errors: { EMAIL_REQUIRED: 'E-mail obrigatório.', EMAIL_INVALID: 'E-mail inválido.', EMAIL_DUPLICATE: 'E-mail já em uso.', NAME_REQUIRED: 'Nome obrigatório.', PHONE_REQUIRED: 'Telefone obrigatório.', PASSWORD_WEAK: 'Senha não atende requisitos.', PASSWORD_MISMATCH: 'Senhas não conferem.' },
+    },
+
     menu: {
       dashboard: 'Dashboard',
       documents: 'Documentos',
@@ -483,6 +501,24 @@ const translations = {
       confirmDeleteBranchMsg: 'Do you want to remove this branch?',
     },
 
+    userPage: {
+      users: 'Users', addUser: 'Add', editUser: 'Edit User', back: 'Back', save: 'Save',
+      group: 'Group', name: 'Name', phone: 'Phone', mobile: 'Mobile', password: 'Password', confirmPassword: 'Confirm Password',
+      approved: 'Approved', lockedOut: 'Locked', lastLogin: 'Last Login', actions: 'Actions', edit: 'Edit', deleteUser: 'Delete',
+      lock: 'Lock', unlock: 'Unlock', yes: 'Yes', no: 'No',
+      noUsers: 'No users found.', searchPlaceholder: 'Search user...', loading: 'Loading...',
+      confirmDelete: 'Confirm Deletion', confirmDeleteMsg: 'Do you want to delete user',
+      confirmLock: 'Lock User', confirmLockMsg: 'Do you want to lock user',
+      confirmUnlock: 'Unlock User', confirmUnlockMsg: 'Do you want to unlock user',
+      cancel: 'Cancel', confirm: 'Confirm', remove: 'Remove',
+      created: 'User created.', updated: 'User updated.', deleted: 'User deleted.', locked: 'User locked.', unlocked: 'User unlocked.',
+      passwordHint: '10-24 chars: 1 uppercase, 1 lowercase, 1 number, 1 special',
+      tabUser: 'User', tabCompanyUser: 'User Companies',
+      selectCompany: 'Select company...', addCompany: 'Add', companyName: 'Company', noCompanies: 'No companies assigned.',
+      companyAdded: 'Company assigned.', companyRemoved: 'Company removed.', companyAlreadyAssigned: 'Company already assigned.',
+      errors: { EMAIL_REQUIRED: 'Email required.', EMAIL_INVALID: 'Invalid email.', EMAIL_DUPLICATE: 'Email already in use.', NAME_REQUIRED: 'Name required.', PHONE_REQUIRED: 'Phone required.', PASSWORD_WEAK: 'Password does not meet requirements.', PASSWORD_MISMATCH: 'Passwords do not match.' },
+    },
+
     menu: {
       dashboard: 'Dashboard',
       documents: 'Documents',
@@ -862,6 +898,24 @@ const translations = {
       branchCodePlaceholder: 'Código sucursal...', branchNamePlaceholder: 'Nombre sucursal...', branchName: 'Nombre',
       noBranches: 'Sin sucursales registradas.', branchAdded: 'Sucursal agregada.', branchUpdated: 'Sucursal actualizada.', branchDeleted: 'Sucursal eliminada.',
       confirmDeleteBranchMsg: '¿Desea eliminar esta sucursal?',
+    },
+
+    userPage: {
+      users: 'Usuarios', addUser: 'Agregar', editUser: 'Editar Usuario', back: 'Volver', save: 'Guardar',
+      group: 'Grupo', name: 'Nombre', phone: 'Teléfono', mobile: 'Celular', password: 'Contraseña', confirmPassword: 'Confirmar Contraseña',
+      approved: 'Aprobado', lockedOut: 'Bloqueado', lastLogin: 'Último Login', actions: 'Acciones', edit: 'Editar', deleteUser: 'Eliminar',
+      lock: 'Bloquear', unlock: 'Desbloquear', yes: 'Sí', no: 'No',
+      noUsers: 'No se encontraron usuarios.', searchPlaceholder: 'Buscar usuario...', loading: 'Cargando...',
+      confirmDelete: 'Confirmar Eliminación', confirmDeleteMsg: '¿Desea eliminar el usuario',
+      confirmLock: 'Bloquear Usuario', confirmLockMsg: '¿Desea bloquear el usuario',
+      confirmUnlock: 'Desbloquear Usuario', confirmUnlockMsg: '¿Desea desbloquear el usuario',
+      cancel: 'Cancelar', confirm: 'Confirmar', remove: 'Eliminar',
+      created: 'Usuario creado.', updated: 'Usuario actualizado.', deleted: 'Usuario eliminado.', locked: 'Usuario bloqueado.', unlocked: 'Usuario desbloqueado.',
+      passwordHint: '10-24 chars: 1 mayúscula, 1 minúscula, 1 número, 1 especial',
+      tabUser: 'Usuario', tabCompanyUser: 'Empresas del Usuario',
+      selectCompany: 'Seleccione empresa...', addCompany: 'Agregar', companyName: 'Empresa', noCompanies: 'Sin empresas asignadas.',
+      companyAdded: 'Empresa asignada.', companyRemoved: 'Empresa eliminada.', companyAlreadyAssigned: 'Empresa ya asignada.',
+      errors: { EMAIL_REQUIRED: 'Correo obligatorio.', EMAIL_INVALID: 'Correo inválido.', EMAIL_DUPLICATE: 'Correo en uso.', NAME_REQUIRED: 'Nombre obligatorio.', PHONE_REQUIRED: 'Teléfono obligatorio.', PASSWORD_WEAK: 'Contraseña no cumple requisitos.', PASSWORD_MISMATCH: 'Contraseñas no coinciden.' },
     },
 
     menu: {
