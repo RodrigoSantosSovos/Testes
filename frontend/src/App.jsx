@@ -14,6 +14,7 @@ import CrudDemo from './pages/CrudDemo'
 import DocumentsPage from './pages/documents/DocumentsPage'
 import GeneralConfigPage from './pages/configuration/GeneralConfigPage'
 import RulePrintPage from './pages/configuration/RulePrintPage'
+import RuleDistributionPage from './pages/configuration/RuleDistributionPage'
 import PlaceholderPage from './pages/PlaceholderPage'
 import './pages/PlaceholderPage.css'
 import useDashboardData from './hooks/useDashboardData'
@@ -38,6 +39,7 @@ const PAGE_TITLES = {
   documents: (t) => ({ title: t.menu.documents, subtitle: t.docs.filtersTitle }),
   'config-general': (t) => ({ title: t.menu.configGeneral, subtitle: `${t.menu.configuration} > ${t.menu.configGeneral}` }),
   'config-rule-print': (t) => ({ title: t.menu.configRulePrint, subtitle: `${t.menu.configuration} > ${t.menu.configRulePrint}` }),
+  'config-rule-distribution': (t) => ({ title: t.menu.configRuleDistribution, subtitle: `${t.menu.configuration} > ${t.menu.configRuleDistribution}` }),
 }
 
 function DashboardShell({ t, user }) {
@@ -134,7 +136,9 @@ function DashboardShell({ t, user }) {
 
         {page === 'config-rule-print' && <RulePrintPage />}
 
-        {!['dashboard', 'crud', 'documents', 'config-general', 'config-rule-print'].includes(page) && (
+        {page === 'config-rule-distribution' && <RuleDistributionPage />}
+
+        {!['dashboard', 'crud', 'documents', 'config-general', 'config-rule-print', 'config-rule-distribution'].includes(page) && (
           <PlaceholderPage
             title={pageMeta.title}
             description={t.placeholder?.comingSoon || 'Esta página será implementada em breve.'}

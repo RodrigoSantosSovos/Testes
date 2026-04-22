@@ -62,6 +62,19 @@ const translations = {
       companyCode: 'Código da Empresa',
     },
 
+    ruleDist: {
+      rules: 'Regras de Distribuição', addRule: 'Adicionar Regra', editRule: 'Editar Regra', back: 'Voltar', save: 'Salvar',
+      ruleName: 'Nome da Regra', process: 'Processo', attachments: 'Anexos', fileNameToAttach: 'Nome do Arquivo', extensionsToAttach: 'Extensões', xpathCondition: 'Condição XPath',
+      tabGeneral: 'Regra de Distribuição', emailTo: 'E-mail Para', subject: 'Assunto', templateFile: 'Arquivo Template',
+      wsUrl: 'URL do WebService', wsHeaderTemplate: 'Template Header', wsBodyTemplate: 'Template Body', wsTransformationTemplate: 'Template Transformação', wsContentTagName: 'Tag de Conteúdo',
+      ftpHostName: 'Host', ftpPortNumber: 'Porta', ftpProtocol: 'Protocolo', ftpUserName: 'Usuário', ftpPassword: 'Senha', ftpPrivateKeyFile: 'Chave Privada', ftpRemoteDirectory: 'Diretório Remoto',
+      as2From: 'AS2 De', as2To: 'AS2 Para', as2Url: 'URL AS2', as2PublicKeyFile: 'Chave Pública', as2FromPublicKeyFile: 'Chave Pública Origem',
+      download: 'Download', actions: 'Ações', edit: 'Editar', deleteRule: 'Excluir', noRules: 'Nenhuma regra encontrada.',
+      confirmDelete: 'Confirmar Exclusão', confirmDeleteMsg: 'Deseja remover a regra', cancel: 'Cancelar',
+      requiredFields: 'Preencha os campos obrigatórios.', ruleCreated: 'Regra criada. Configure os canais nas abas.', ruleDeleted: 'Regra removida.', ruleExists: 'Regra já existe.', saveError: 'Erro ao salvar.', tabSaved: 'Aba salva com sucesso.',
+      company: 'Empresa', documentType: 'Tipo de Documento', companyCode: 'Código da Empresa',
+    },
+
     menu: {
       dashboard: 'Dashboard',
       documents: 'Documentos',
@@ -403,6 +416,19 @@ const translations = {
       companyCode: 'Company Code',
     },
 
+    ruleDist: {
+      rules: 'Distribution Rules', addRule: 'Add Rule', editRule: 'Edit Rule', back: 'Back', save: 'Save',
+      ruleName: 'Rule Name', process: 'Process', attachments: 'Attachments', fileNameToAttach: 'File Name', extensionsToAttach: 'Extensions', xpathCondition: 'XPath Condition',
+      tabGeneral: 'Rule of Distribution', emailTo: 'Email To', subject: 'Subject', templateFile: 'Template File',
+      wsUrl: 'WebService URL', wsHeaderTemplate: 'Header Template', wsBodyTemplate: 'Body Template', wsTransformationTemplate: 'Transformation Template', wsContentTagName: 'Content Tag Name',
+      ftpHostName: 'Host', ftpPortNumber: 'Port', ftpProtocol: 'Protocol', ftpUserName: 'Username', ftpPassword: 'Password', ftpPrivateKeyFile: 'Private Key', ftpRemoteDirectory: 'Remote Directory',
+      as2From: 'AS2 From', as2To: 'AS2 To', as2Url: 'AS2 URL', as2PublicKeyFile: 'Public Key', as2FromPublicKeyFile: 'From Public Key',
+      download: 'Download', actions: 'Actions', edit: 'Edit', deleteRule: 'Delete', noRules: 'No rules found.',
+      confirmDelete: 'Confirm Deletion', confirmDeleteMsg: 'Do you want to remove the rule', cancel: 'Cancel',
+      requiredFields: 'Please fill required fields.', ruleCreated: 'Rule created. Configure channels in the tabs.', ruleDeleted: 'Rule removed.', ruleExists: 'Rule already exists.', saveError: 'Error saving.', tabSaved: 'Tab saved successfully.',
+      company: 'Company', documentType: 'Document Type', companyCode: 'Company Code',
+    },
+
     menu: {
       dashboard: 'Dashboard',
       documents: 'Documents',
@@ -742,6 +768,19 @@ const translations = {
       company: 'Empresa',
       documentType: 'Tipo de Documento',
       companyCode: 'Código de Empresa',
+    },
+
+    ruleDist: {
+      rules: 'Reglas de Distribución', addRule: 'Agregar Regla', editRule: 'Editar Regla', back: 'Volver', save: 'Guardar',
+      ruleName: 'Nombre de la Regla', process: 'Proceso', attachments: 'Adjuntos', fileNameToAttach: 'Nombre de Archivo', extensionsToAttach: 'Extensiones', xpathCondition: 'Condición XPath',
+      tabGeneral: 'Regla de Distribución', emailTo: 'Email Para', subject: 'Asunto', templateFile: 'Archivo Template',
+      wsUrl: 'URL del WebService', wsHeaderTemplate: 'Template Header', wsBodyTemplate: 'Template Body', wsTransformationTemplate: 'Template Transformación', wsContentTagName: 'Tag de Contenido',
+      ftpHostName: 'Host', ftpPortNumber: 'Puerto', ftpProtocol: 'Protocolo', ftpUserName: 'Usuario', ftpPassword: 'Contraseña', ftpPrivateKeyFile: 'Clave Privada', ftpRemoteDirectory: 'Directorio Remoto',
+      as2From: 'AS2 De', as2To: 'AS2 Para', as2Url: 'URL AS2', as2PublicKeyFile: 'Clave Pública', as2FromPublicKeyFile: 'Clave Pública Origen',
+      download: 'Descargar', actions: 'Acciones', edit: 'Editar', deleteRule: 'Eliminar', noRules: 'No se encontraron reglas.',
+      confirmDelete: 'Confirmar Eliminación', confirmDeleteMsg: '¿Desea eliminar la regla', cancel: 'Cancelar',
+      requiredFields: 'Complete los campos obligatorios.', ruleCreated: 'Regla creada. Configure los canales en las pestañas.', ruleDeleted: 'Regla eliminada.', ruleExists: 'La regla ya existe.', saveError: 'Error al guardar.', tabSaved: 'Pestaña guardada con éxito.',
+      company: 'Empresa', documentType: 'Tipo de Documento', companyCode: 'Código de Empresa',
     },
 
     menu: {
