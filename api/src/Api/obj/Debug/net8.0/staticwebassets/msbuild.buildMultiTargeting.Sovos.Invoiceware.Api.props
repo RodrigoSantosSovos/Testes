@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Sovos.Invoiceware.Api.props" />
+</Project>
