@@ -22,6 +22,12 @@ builder.Services.AddCors(opt =>
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<Sovos.Invoiceware.Infrastructure.Data.AppDbContext>();
+    Sovos.Invoiceware.Infrastructure.Data.SeedData.Seed(db);
+}
+
 app.UseMiddleware<CorrelationIdMiddleware>();
 
 if (app.Environment.IsDevelopment())

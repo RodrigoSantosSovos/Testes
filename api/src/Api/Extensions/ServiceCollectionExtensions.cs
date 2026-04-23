@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Sovos.Invoiceware.Application.Interfaces;
 using Sovos.Invoiceware.Domain.Interfaces;
 using Sovos.Invoiceware.Infrastructure.Data;
 using Sovos.Invoiceware.Infrastructure.Repositories;
+using Sovos.Invoiceware.Infrastructure.Services;
 
 namespace Sovos.Invoiceware.Api.Extensions;
 
@@ -17,6 +19,7 @@ public static class ServiceCollectionExtensions
             opt.UseInMemoryDatabase("InvoicewareDb"));
 
         services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
+        services.AddScoped<IDocumentService, DocumentService>();
 
         return services;
     }
