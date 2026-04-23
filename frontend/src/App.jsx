@@ -14,6 +14,7 @@ import ErrorsByCompany from './components/dashboard/ErrorsByCompany'
 import SuccessRateRing from './components/dashboard/SuccessRateRing'
 import CrudDemo from './pages/CrudDemo'
 import DocumentsPage from './pages/documents/DocumentsPage'
+import ProcessesPage from './pages/processes/ProcessesPage'
 import GeneralConfigPage from './pages/configuration/GeneralConfigPage'
 import RulePrintPage from './pages/configuration/RulePrintPage'
 import RuleDistributionPage from './pages/configuration/RuleDistributionPage'
@@ -48,6 +49,7 @@ const PAGE_TITLES = {
   dashboard: (t) => ({ title: t.dashboard?.title || 'Dashboard', subtitle: t.dashboard?.subtitle || '' }),
   crud: (t) => ({ title: t.crud.title, subtitle: t.crud.subtitle }),
   documents: (t) => ({ title: t.menu.documents, subtitle: t.docs.filtersTitle }),
+  processes: (t) => ({ title: t.menu.processes, subtitle: t.proc.filters }),
   'config-general': (t) => ({ title: t.menu.configGeneral, subtitle: `${t.menu.configuration} > ${t.menu.configGeneral}` }),
   'config-rule-print': (t) => ({ title: t.menu.configRulePrint, subtitle: `${t.menu.configuration} > ${t.menu.configRulePrint}` }),
   'config-rule-distribution': (t) => ({ title: t.menu.configRuleDistribution, subtitle: `${t.menu.configuration} > ${t.menu.configRuleDistribution}` }),
@@ -157,6 +159,8 @@ function DashboardShell({ t, user }) {
 
         {page === 'documents' && <DocumentsPage userPermissions={user.permissions} />}
 
+        {page === 'processes' && <ProcessesPage />}
+
         {page === 'config-general' && <GeneralConfigPage />}
 
         {page === 'config-rule-print' && <RulePrintPage />}
@@ -178,7 +182,7 @@ function DashboardShell({ t, user }) {
         {page === 'util-country' && <UtilityCountryOpsPage />}
         {page === 'util-queue' && <UtilityQueuePage />}
 
-        {!['dashboard', 'crud', 'documents', 'config-general', 'config-rule-print', 'config-rule-distribution', 'sec-partner', 'sec-companies', 'sec-users', 'sec-business-group', 'idoc-generation', 'util-search', 'util-export', 'util-country', 'util-queue'].includes(page) && (
+        {!['dashboard', 'crud', 'documents', 'processes', 'config-general', 'config-rule-print', 'config-rule-distribution', 'sec-partner', 'sec-companies', 'sec-users', 'sec-business-group', 'idoc-generation', 'util-search', 'util-export', 'util-country', 'util-queue'].includes(page) && (
           <PlaceholderPage
             title={pageMeta.title}
             description={t.placeholder?.comingSoon || 'Esta página será implementada em breve.'}
