@@ -1,102 +1,87 @@
-const DOC_TYPES = ['ide', 'NFe', 'CTe', 'MDFe', 'NFSe', 'CFDI', 'DTE', 'AFIP']
+import { getDocumentTypeOptions, getFiltersForType } from '../config/documentTypes'
 
-const MOCK_DOCS = (n) => Array.from({ length: n }, () => ({
-  documentId: `DOC-${50000 + Math.floor(Math.random() * 50000)}`,
-  documentType: DOC_TYPES[Math.floor(Math.random() * DOC_TYPES.length)],
-  owner: `COMP-00${Math.floor(Math.random() * 5) + 1}`,
-  status: ['Processing', 'Authorized', 'Error'][Math.floor(Math.random() * 3)],
-  creationDate: new Date(Date.now() - Math.random() * 30 * 86400000).toISOString(),
-}))
-
-export function getDocTypes() { return DOC_TYPES }
-
-export async function searchProcessDocuments(_filter) {
-  await new Promise((r) => setTimeout(r, 500))
-  const n = Math.floor(Math.random() * 20) + 3
-  return { total: n, documents: MOCK_DOCS(n) }
+const REPORTS_BY_DOC_TYPE = {
+  'BR-nfeProc': [
+    { value: 'Report::NFEBR::GenerateXMLLot', text: 'Gerar Lote de XML Emitidos (ZIP)' },
+    { value: 'Report::NFEBR::GenerateReceptionReport', text: 'Gerar Lote de XML Recebidos (ZIP)' },
+    { value: 'Report::NFEBR::GeneratePDFLot', text: 'Gerar Lote de PDF Emitidos (ZIP)' },
+  ],
+  'BR-cteProc': [
+    { value: 'Report::NFEBR::GenerateXMLLot', text: 'Gerar Lote de XML CT-e (ZIP)' },
+    { value: 'Report::NFEBR::GeneratePDFLot', text: 'Gerar Lote de PDF CT-e (ZIP)' },
+  ],
+  'BR-mdfeProc': [
+    { value: 'Report::NFEBR::GenerateXMLLot', text: 'Gerar Lote de XML MDF-e (ZIP)' },
+  ],
+  'BR-NfsePedidoCancelamento': [
+    { value: 'Report::NFEBR::GenerateXMLLot', text: 'Gerar Lote de XML NFS-e (ZIP)' },
+  ],
+  'AR-FEV1Authorize': [
+    { value: 'Report::NFEBR::GenerateXMLLot', text: 'Generar Lote de XML emitidos (ZIP)' },
+    { value: 'Report::NFEBR::GeneratePDFLot', text: 'Generar Lote de PDF emitidos (ZIP)' },
+  ],
+  'AR-FEAuthorize': [
+    { value: 'Report::NFEBR::GenerateXMLLot', text: 'Generar Lote de XML emitidos (ZIP)' },
+  ],
+  'CL-DTE': [
+    { value: 'Report::NFEBR::GenerateXMLLot', text: 'Generar Lote de XML DTE (ZIP)' },
+    { value: 'Report::NFEBR::GeneratePDFLot', text: 'Generar Lote de PDF DTE (ZIP)' },
+  ],
+  'CR-FacturaElectronica': [
+    { value: 'Report::NFEBR::GenerateXMLLot', text: 'Generar Lote de XML Factura (ZIP)' },
+  ],
 }
 
-export async function sendToQueue(ids, queueName, changeQueue, osQueueName) {
-  await new Promise((r) => setTimeout(r, 600))
-  return { success: true, message: `${ids.length} documentos enviados para fila "${queueName}"${changeQueue ? ` (QueueName→${osQueueName})` : ''}` }
+let mockRequests = [
+  { requestId: 'REQ-001', documentType: 'BR-nfeProc', username: 'admin', reportName: 'Report::NFEBR::GenerateXMLLot', reportDescription: 'Gerar Lote de XML Emitidos (ZIP)', requestedDate: '2026-04-01T14:30:00', startDate: '2026-04-01T14:30:05', endDate: '2026-04-01T14:32:10', reportFile: 'Report_REQ-001.zip', status: 2, email: 'fiscal@sovos.com' },
+  { requestId: 'REQ-002', documentType: 'BR-nfeProc', username: 'admin', reportName: 'Report::NFEBR::GeneratePDFLot', reportDescription: 'Gerar Lote de PDF Emitidos (ZIP)', requestedDate: '2026-04-01T15:00:00', startDate: '2026-04-01T15:00:03', endDate: null, reportFile: null, status: 0, email: '' },
+  { requestId: 'REQ-003', documentType: 'BR-nfeProc', username: 'admin', reportName: 'Report::NFEBR::GenerateReceptionReport', reportDescription: 'Gerar Lote de XML Recebidos (ZIP)', requestedDate: '2026-03-30T09:00:00', startDate: '2026-03-30T09:00:02', endDate: '2026-03-30T09:05:45', reportFile: 'Report_REQ-003.zip', status: 2, email: 'contabilidade@sovos.com' },
+]
+
+export function getProcessDocumentTypes() {
+  return getDocumentTypeOptions()
 }
 
-export async function changeEmissionType(ids, tpEmis) {
-  await new Promise((r) => setTimeout(r, 700))
-  return { success: true, message: `Tipo emissão alterado para ${tpEmis} em ${ids.length} NFe. Assinatura removida → TFClientSign1.` }
+export async function getReportsByDocumentType(documentType) {
+  await new Promise((r) => setTimeout(r, 100))
+  return REPORTS_BY_DOC_TYPE[documentType] || []
 }
 
-export async function exportObjects(ids) {
-  await new Promise((r) => setTimeout(r, 600))
-  return { success: true, message: `ObjectSpace exportado para ${ids.length} documentos.` }
+export async function getDynamicFilters(documentType) {
+  await new Promise((r) => setTimeout(r, 80))
+  return getFiltersForType(documentType)
 }
 
-export async function processKelloggIndex(ids) {
-  await new Promise((r) => setTimeout(r, 800))
-  return { success: true, message: `Índice tabulado gerado: Index_Tabbed_${Date.now()}.txt (${ids.length} docs)` }
+export async function getReportRequests(documentType) {
+  await new Promise((r) => setTimeout(r, 300))
+  return mockRequests.filter((r) => r.documentType === documentType)
 }
 
-export async function cfdiApprovalMsg(ids) {
-  await new Promise((r) => setTimeout(r, 500))
-  return { success: true, message: `SQL de aprovação CFDI gerado para ${ids.length} documentos.` }
-}
+export async function saveReportRequest(model, _tags) {
+  await new Promise((r) => setTimeout(r, 400))
+  const now = new Date()
+  const req = {
+    requestId: `REQ-${String(Date.now()).slice(-6)}`,
+    documentType: model.documentType,
+    username: 'admin',
+    reportName: model.reportName,
+    reportDescription: model.reportDescription || model.reportName,
+    requestedDate: now.toISOString(),
+    startDate: now.toISOString(),
+    endDate: null,
+    reportFile: null,
+    status: 0,
+    email: model.sendEmail || '',
+  }
+  mockRequests = [req, ...mockRequests]
 
-export async function downloadNfe(ids) {
-  await new Promise((r) => setTimeout(r, 900))
-  return { success: true, message: `Download NFe (Ciência da Operação) executado para ${ids.length} documentos.` }
-}
+  setTimeout(() => {
+    mockRequests = mockRequests.map((r) =>
+      r.requestId === req.requestId
+        ? { ...r, endDate: new Date(Date.now()).toISOString(), reportFile: `Report_${req.requestId}.zip`, status: 2 }
+        : r
+    )
+  }, 8000)
 
-export async function rebuildZips(ids) {
-  await new Promise((r) => setTimeout(r, 1000))
-  return { success: true, message: `${ids.length} documentos serializados como ZIP e atualizados.` }
-}
-
-export async function processGrainger(ids) {
-  await new Promise((r) => setTimeout(r, 800))
-  return { success: true, message: `Exportação Grainger concluída para ${ids.length} CFDI.` }
-}
-
-export async function processEnvioDte(ids) {
-  await new Promise((r) => setTimeout(r, 700))
-  return { success: true, message: `EnvioDTE reconstruído e assinado para ${ids.length} DTE.` }
-}
-
-export async function exportAttachment(ids) {
-  await new Promise((r) => setTimeout(r, 500))
-  return { success: true, message: `Anexos exportados para ${ids.length} documentos.` }
-}
-
-export async function downloadReturns(ids) {
-  await new Promise((r) => setTimeout(r, 600))
-  return { success: true, message: `Retornos reprocessados para ${ids.length} documentos. RESENDMSG=true.` }
-}
-
-export async function purgeDocuments(ids) {
-  await new Promise((r) => setTimeout(r, 800))
-  return { success: true, message: `${ids.length} documentos e registros relacionados apagados (Actions, Errors, HistoryFlow, Messages, Store).` }
-}
-
-export async function nfePdfRecep(ids) {
-  await new Promise((r) => setTimeout(r, 500))
-  return { success: true, message: `Reimpressão PDF (REPDF=true, PRINTRECEPCTION=true) enviada para NFEPrint1. ${ids.length} docs.` }
-}
-
-export async function processChep(ids) {
-  await new Promise((r) => setTimeout(r, 700))
-  return { success: true, message: `CHEP Index gerado para ${ids.length} documentos via Text_Index_ObjectMapping_CHEP.xml.` }
-}
-
-export async function processUuid() {
-  await new Promise((r) => setTimeout(r, 800))
-  return { success: true, message: 'XMLs UUID importados de C:\\UUIDs.' }
-}
-
-export async function fixTimbreCfdi(ids) {
-  await new Promise((r) => setTimeout(r, 600))
-  return { success: true, message: `TimbreFiscalDigital corrigido em ${ids.length} CFDI. Enviado para CFDIPrint1.` }
-}
-
-export async function clearTfMessageQueue2() {
-  await new Promise((r) => setTimeout(r, 500))
-  return { success: true, message: 'TFMessageQueue2 limpa.' }
+  return { success: true, requestId: req.requestId }
 }
