@@ -1,7 +1,7 @@
 import { FIELD_TYPES } from '../../../config/documentTypes'
 
 function FilterField({ filter, value, onChange, t }) {
-  const label = t.docFilters[filter.labelKey] || filter.labelKey
+  const label = filter.label || t.docFilters?.[filter.labelKey] || filter.labelKey
 
   if (filter.type === FIELD_TYPES.STRING) {
     return (

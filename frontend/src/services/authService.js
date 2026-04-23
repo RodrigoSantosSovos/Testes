@@ -1,26 +1,17 @@
-const MOCK_USER = {
-  username: 'admin',
-  name: 'Rodrigo Santos',
-  permissions: [
-    'UI::Main::Menu_Dashboards',
-    'UI::Main::Menu_Reports',
-    'UI::Main::Menu_Settings',
-    'UI::Main::Menu_Security',
-    'UI::Main::Menu_ReceptionLog',
-    'UI::Main::Document_Support',
-    'UI::Main::Document_Delete',
-  ],
-}
+import api from './api'
 
 export async function login(username, password) {
-  await new Promise((r) => setTimeout(r, 800))
+  const data = await api.post('/auth/login', { username, password })
+  localStorage.setItem('auth-token', data.token)
 
-  if (username === 'admin' && password === 'admin') {
-    localStorage.setItem('auth-token', 'mock-jwt-token')
-    return { ...MOCK_USER }
+  const payload = parseJwt(data.token)
+  const permissions = payload.permission || []
+
+  return {
+    username: data.username,
+    name: data.name,
+    permissions: Array.isArray(permissions) ? permissions : [permissions],
   }
-
-  throw new Error('INVALID_CREDENTIALS')
 }
 
 export async function logout() {
@@ -30,4 +21,13 @@ export async function logout() {
 export function hasPermission(userPermissions, required) {
   if (!required) return true
   return userPermissions.includes(required)
+}
+
+function parseJwt(token) {
+  try {
+    const base64 = token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')
+    return JSON.parse(atob(base64))
+  } catch {
+    return {}
+  }
 }

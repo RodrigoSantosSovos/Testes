@@ -9,7 +9,7 @@ function FixedFilters({ values, onChange, documentTypeOptions, actionOptions, t,
           <option value="">{d.selectDocType}</option>
           {documentTypeOptions.map((opt) => (
             <option key={opt.id} value={opt.id}>
-              [{opt.country}] {t.docTypes[opt.labelKey] || opt.labelKey}
+              {opt.description || `[${opt.country}] ${t.docTypes?.[opt.labelKey] || opt.labelKey}`}
             </option>
           ))}
         </select>

@@ -69,7 +69,7 @@ function ResultsTable({ data, t, onOpenDetail, actionOptions, onBatchAction, onE
                 />
               </th>
               {data.columns.map((col) => (
-                <th key={col.tag}>{t.docFilters[col.labelKey] || col.labelKey}</th>
+                <th key={col.tag}>{col.label || t.docFilters?.[col.labelKey] || col.labelKey}</th>
               ))}
               <th>Status</th>
               <th className="th-sem" />
