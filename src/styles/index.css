@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-background: var(--ff-background);
+  --color-surface: var(--ff-surface);
+  --color-surface-elevated: var(--ff-surface-elevated);
+  --color-border: var(--ff-border);
+  --color-border-subtle: var(--ff-border-subtle);
+  --color-text-primary: var(--ff-text-primary);
+  --color-text-secondary: var(--ff-text-secondary);
+  --color-text-muted: var(--ff-text-muted);
+  --color-accent: var(--ff-accent);
+  --color-accent-muted: var(--ff-accent-muted);
+  --color-success: var(--ff-success);
+  --color-success-muted: var(--ff-success-muted);
+  --color-warning: var(--ff-warning);
+  --color-warning-muted: var(--ff-warning-muted);
+  --color-error: var(--ff-error);
+  --color-error-muted: var(--ff-error-muted);
+  --color-focus: var(--ff-focus);
+}
+
+:root {
+  --ff-background: #f6f3ee;
+  --ff-surface: #fffcf7;
+  --ff-surface-elevated: #ffffff;
+  --ff-border: #e4ddd3;
+  --ff-border-subtle: #efeae3;
+  --ff-text-primary: #14110e;
+  --ff-text-secondary: #4a443c;
+  --ff-text-muted: #8a8278;
+  --ff-accent: #c45c26;
+  --ff-accent-muted: #f9ebe3;
+  --ff-success: #1f6b45;
+  --ff-success-muted: #e8f3ec;
+  --ff-warning: #9a6700;
+  --ff-warning-muted: #fbf3e3;
+  --ff-error: #a32b2b;
+  --ff-error-muted: #faeaea;
+  --ff-focus: #c45c26;
+  --ff-rail: #fffcf7cc;
+  --ff-rail-border: #e4ddd3;
+  --ff-rail-active: #c45c26;
+  --ff-canvas-grid: rgba(20, 17, 14, 0.04);
+}
+
+.dark {
+  --ff-background: #0e0d0b;
+  --ff-surface: #161412;
+  --ff-surface-elevated: #1e1b18;
+  --ff-border: #2e2a26;
+  --ff-border-subtle: #242019;
+  --ff-text-primary: #f5f0e8;
+  --ff-text-secondary: #b8aea2;
+  --ff-text-muted: #7a7268;
+  --ff-accent: #e8955f;
+  --ff-accent-muted: #3d281a;
+  --ff-success: #6bc49a;
+  --ff-success-muted: #1a2e24;
+  --ff-warning: #e0b04a;
+  --ff-warning-muted: #2e2614;
+  --ff-error: #e07a7a;
+  --ff-error-muted: #301818;
+  --ff-focus: #e8955f;
+  --ff-rail: #161412cc;
+  --ff-rail-border: #2e2a26;
+  --ff-rail-active: #e8955f;
+  --ff-canvas-grid: rgba(245, 240, 232, 0.03);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-background text-text-primary font-sans min-h-screen;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-focus;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .ff-canvas {
+    background-color: var(--ff-background);
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      var(--ff-canvas-grid) 1px,
+      transparent 0
+    );
+    background-size: 22px 22px;
+  }
+
+  .ff-hairline {
+    box-shadow: inset 0 -1px 0 var(--ff-border-subtle);
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--ff-border) transparent;
+  }
+}

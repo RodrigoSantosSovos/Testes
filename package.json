@@ -1,9 +1,31 @@
 {
-  "name": "testes",
+  "name": "fiscalflow",
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test",
-    "lint": "node --check src/greet.js && node --check test/greet.test.js"
+    "dev": "vite --host 0.0.0.0 --port 5173",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 5173",
+    "lint": "tsc -b --noEmit"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "i18next": "^25.5.2",
+    "lucide-react": "^0.544.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-i18next": "^15.7.3",
+    "recharts": "^3.2.1",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.13",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.2",
+    "tailwindcss": "^4.1.13",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.5"
   }
 }
