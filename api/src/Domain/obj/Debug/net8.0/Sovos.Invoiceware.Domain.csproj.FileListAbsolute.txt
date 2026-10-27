@@ -1,0 +1,12 @@
+/workspace/api/src/Domain/bin/Debug/net8.0/Sovos.Invoiceware.Domain.deps.json
+/workspace/api/src/Domain/bin/Debug/net8.0/Sovos.Invoiceware.Domain.dll
+/workspace/api/src/Domain/bin/Debug/net8.0/Sovos.Invoiceware.Domain.pdb
+/workspace/api/src/Domain/obj/Debug/net8.0/Sovos.Invoiceware.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/workspace/api/src/Domain/obj/Debug/net8.0/Sovos.Invoiceware.Domain.AssemblyInfoInputs.cache
+/workspace/api/src/Domain/obj/Debug/net8.0/Sovos.Invoiceware.Domain.AssemblyInfo.cs
+/workspace/api/src/Domain/obj/Debug/net8.0/Sovos.Invoiceware.Domain.csproj.CoreCompileInputs.cache
+/workspace/api/src/Domain/obj/Debug/net8.0/Sovos.Invoiceware.Domain.sourcelink.json
+/workspace/api/src/Domain/obj/Debug/net8.0/Sovos.Invoiceware.Domain.dll
+/workspace/api/src/Domain/obj/Debug/net8.0/refint/Sovos.Invoiceware.Domain.dll
+/workspace/api/src/Domain/obj/Debug/net8.0/Sovos.Invoiceware.Domain.pdb
+/workspace/api/src/Domain/obj/Debug/net8.0/ref/Sovos.Invoiceware.Domain.dll

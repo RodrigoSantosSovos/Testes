@@ -1,0 +1,55 @@
+.company-page { margin-top: 18px; }
+
+.company-tab-body { padding: 20px; }
+.company-tab-body table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 14px; }
+.company-tab-body thead th { text-align: left; color: var(--muted-text); font-weight: 600; border-bottom: 1px solid var(--panel-border); padding: 8px; font-size: 12px; }
+.company-tab-body tbody td { padding: 8px; border-bottom: 1px solid var(--table-divider); color: var(--text-color); }
+
+.company-inline-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.company-inline-form select,
+.company-inline-form input {
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--text-color);
+  background: var(--panel-bg);
+  outline: none;
+  font-family: inherit;
+  min-width: 160px;
+}
+
+.company-inline-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' stroke='%237e8299' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+}
+
+.company-inline-form select:focus,
+.company-inline-form input:focus { border-color: var(--primary); }
+
+.company-inline-input {
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-sm);
+  padding: 4px 8px;
+  font-size: 13px;
+  color: var(--text-color);
+  background: var(--panel-bg);
+  outline: none;
+  font-family: inherit;
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  .company-inline-form { flex-direction: column; align-items: stretch; }
+  .company-inline-form select,
+  .company-inline-form input { min-width: 0; }
+}

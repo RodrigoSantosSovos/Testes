@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Sovos.Invoiceware.Application/1.0.0": {
+        "dependencies": {
+          "Sovos.Invoiceware.Domain": "1.0.0"
+        },
+        "runtime": {
+          "Sovos.Invoiceware.Application.dll": {}
+        }
+      },
+      "Sovos.Invoiceware.Domain/1.0.0": {
+        "runtime": {
+          "Sovos.Invoiceware.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Sovos.Invoiceware.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Sovos.Invoiceware.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,7 @@
+.user-page { margin-top: 18px; }
+.user-row-locked { opacity: 0.6; }
+.user-unlock, .user-lock { font-size: 14px; }
+.user-pw-wrap { position: relative; display: flex; align-items: center; }
+.user-pw-wrap input { width: 100%; padding-right: 36px; }
+.user-pw-toggle { position: absolute; right: 8px; background: none; border: 0; cursor: pointer; font-size: 14px; padding: 2px; }
+.user-pw-hint { font-size: 11px; color: var(--muted-text); margin-top: 2px; }

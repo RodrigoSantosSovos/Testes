@@ -1,0 +1,13 @@
+.rd-page { margin-top: 18px; }
+
+.rd-edit-container {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.rd-tab-form {
+  padding: 20px;
+}

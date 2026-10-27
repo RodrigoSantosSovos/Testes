@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "uDOLobY1I5E9bMiI9PTyZTLLL6BJzZ17HxWINeNey5M=",
+  "Source": "Sovos.Invoiceware.Api",
+  "BasePath": "_content/Sovos.Invoiceware.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

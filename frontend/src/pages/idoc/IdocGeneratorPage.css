@@ -1,0 +1,159 @@
+.idoc-page { margin-top: 18px; }
+
+.idoc-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.idoc-info {
+  background: var(--primary-soft);
+  color: var(--primary);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.idoc-textarea-wrap {
+  margin-bottom: 14px;
+}
+
+.idoc-textarea-wrap label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 6px;
+}
+
+.idoc-textarea-wrap textarea {
+  width: 100%;
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  font-family: 'Consolas', 'Fira Code', monospace;
+  font-size: 12px;
+  color: var(--text-color);
+  background: var(--panel-bg);
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.15s;
+}
+
+.idoc-textarea-wrap textarea:focus { border-color: var(--primary); }
+
+.idoc-filter {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.idoc-filter input {
+  flex: 1;
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--text-color);
+  background: var(--panel-bg);
+  outline: none;
+  font-family: inherit;
+  max-width: 400px;
+}
+
+.idoc-filter input:focus { border-color: var(--primary); }
+.idoc-filter-count { font-size: 12px; color: var(--muted-text); white-space: nowrap; }
+
+.idoc-segments { display: flex; flex-direction: column; gap: 6px; }
+
+.idoc-segment {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.idoc-segment.enabled { border-left: 3px solid var(--success); }
+.idoc-segment.fixed { border-left: 3px solid var(--primary); opacity: 0.7; }
+
+.idoc-segment-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+}
+
+.idoc-segment-header:hover { background: var(--ghost-bg); }
+
+.idoc-toggle { font-size: 10px; color: var(--muted-text); width: 14px; }
+.idoc-seg-name { font-family: monospace; font-size: 12px; font-weight: 700; color: var(--heading-color); white-space: nowrap; }
+.idoc-seg-desc { font-size: 12px; color: var(--muted-text); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.idoc-seg-check {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--text-color);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.idoc-seg-check input { accent-color: var(--success); }
+
+.idoc-segment-body {
+  padding: 0 14px 14px;
+}
+
+.idoc-fixed-info, .idoc-no-fields {
+  font-size: 12px;
+  color: var(--muted-text);
+  padding: 8px 0;
+}
+
+.idoc-segment-body table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.idoc-segment-body thead th {
+  text-align: left;
+  color: var(--muted-text);
+  font-weight: 600;
+  border-bottom: 1px solid var(--panel-border);
+  padding: 6px 6px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.idoc-segment-body tbody td { padding: 4px 6px; border-bottom: 1px solid var(--table-divider); }
+.idoc-segment-body tbody tr.has-value { background: var(--success-soft); }
+
+.idoc-td-num { font-family: monospace; text-align: center; width: 40px; color: var(--muted-text); }
+.idoc-td-name { font-family: monospace; font-weight: 600; color: var(--heading-color); white-space: nowrap; }
+.idoc-td-alias { font-size: 11px; color: var(--muted-text); white-space: nowrap; }
+.idoc-td-desc { font-size: 11px; color: var(--text-color); max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.idoc-td-value input {
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-sm);
+  padding: 4px 6px;
+  font-family: monospace;
+  font-size: 12px;
+  color: var(--text-color);
+  background: var(--panel-bg);
+  outline: none;
+  width: 100%;
+  min-width: 80px;
+  transition: border-color 0.15s;
+}
+
+.idoc-td-value input:focus { border-color: var(--primary); }
+
+@media (max-width: 900px) {
+  .idoc-controls { flex-direction: column; }
+  .idoc-filter input { max-width: 100%; }
+}

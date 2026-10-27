@@ -1,0 +1,290 @@
+.cfg-general-page { margin-top: 18px; }
+
+/* ---- filter panel ---- */
+.cfg-filters-panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.cfg-filters-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.cfg-filters-header h2 {
+  margin: 0;
+  font-size: 17px;
+  color: var(--heading-color);
+}
+
+.cfg-filters-header-actions { display: flex; gap: 8px; }
+
+.cfg-filter-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: flex-end;
+}
+
+.cfg-filter-fields > * { flex: 1; min-width: 200px; }
+
+.cfg-filter-btn {
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cfg-filter-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--text-color);
+}
+
+/* ---- autocomplete ---- */
+.cfg-autocomplete {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cfg-autocomplete-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cfg-autocomplete-input-wrap input {
+  width: 100%;
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-md);
+  padding: 9px 32px 9px 12px;
+  font-size: 13px;
+  color: var(--text-color);
+  background: var(--panel-bg);
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.15s;
+}
+
+.cfg-autocomplete-input-wrap input:focus {
+  border-color: var(--primary);
+}
+
+.cfg-autocomplete-clear {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: var(--muted-text);
+  font-size: 14px;
+  padding: 2px 4px;
+}
+.cfg-autocomplete-clear:hover { color: var(--danger); }
+
+.cfg-autocomplete-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 6px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.cfg-autocomplete-dropdown li { list-style: none; }
+
+.cfg-autocomplete-dropdown button {
+  width: 100%;
+  border: 0;
+  background: none;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--text-color);
+  font-size: 13px;
+  text-align: left;
+  font-family: inherit;
+}
+
+.cfg-autocomplete-dropdown button:hover { background: var(--ghost-bg); }
+.cfg-autocomplete-dropdown button.active { background: var(--primary-soft); color: var(--primary); font-weight: 600; }
+
+.cfg-autocomplete-status {
+  padding: 8px 10px;
+  color: var(--muted-text);
+  font-size: 13px;
+}
+
+/* ---- constants section ---- */
+.cfg-constants-section { margin-top: 16px; }
+
+.cfg-constants-header,
+.cfg-constants-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.cfg-constants-footer { margin-top: 12px; margin-bottom: 0; }
+
+/* ---- accordion ---- */
+.cfg-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cfg-accordion-panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.cfg-accordion-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--heading-color);
+  text-align: left;
+  transition: background 0.15s;
+}
+
+.cfg-accordion-header:hover { background: var(--ghost-bg); }
+
+.cfg-accordion-title { flex: 1; }
+
+.cfg-accordion-count {
+  background: var(--ghost-bg);
+  color: var(--muted-text);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.cfg-accordion-chevron {
+  transition: transform 0.2s ease;
+  color: var(--muted-text);
+  flex-shrink: 0;
+}
+
+.cfg-accordion-chevron.open {
+  transform: rotate(180deg);
+}
+
+.cfg-accordion-body {
+  padding: 0 18px 14px;
+}
+
+.cfg-accordion-body table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.cfg-accordion-body thead th {
+  text-align: left;
+  color: var(--muted-text);
+  font-weight: 600;
+  border-bottom: 1px solid var(--panel-border);
+  padding: 8px 8px;
+  font-size: 12px;
+}
+
+.cfg-th-action { width: 40px; }
+
+.cfg-constant-row td { padding: 8px; border-bottom: 1px solid var(--table-divider); }
+
+.cfg-constant-name code {
+  font-size: 12px;
+  color: var(--heading-color);
+  background: var(--ghost-bg);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.cfg-constant-value { min-width: 250px; }
+
+.cfg-input {
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-md);
+  padding: 7px 10px;
+  font-size: 13px;
+  color: var(--text-color);
+  background: var(--panel-bg);
+  outline: none;
+  font-family: inherit;
+  width: 100%;
+  max-width: 350px;
+  transition: border-color 0.15s;
+}
+
+.cfg-input:focus { border-color: var(--primary); }
+.cfg-input-password { font-family: monospace; }
+
+.cfg-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-color);
+}
+
+.cfg-checkbox input {
+  accent-color: var(--primary);
+  width: 16px;
+  height: 16px;
+}
+
+.cfg-save-individual {
+  background: none;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-sm);
+  padding: 5px;
+  cursor: pointer;
+  color: var(--muted-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.cfg-save-individual:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* ---- responsive ---- */
+@media (max-width: 900px) {
+  .cfg-filter-fields {
+    flex-direction: column;
+  }
+
+  .cfg-filter-fields > * { min-width: 0; }
+
+  .cfg-constant-value { min-width: 0; }
+  .cfg-input { max-width: 100%; }
+}
