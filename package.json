@@ -1,0 +1,9 @@
+{
+  "name": "testes",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "lint": "node --check src/greet.js && node --check test/greet.test.js"
+  }
+}
