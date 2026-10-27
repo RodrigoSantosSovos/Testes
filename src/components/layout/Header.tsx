@@ -61,8 +61,8 @@ export function Header({
   ];
 
   return (
-    <header className="sticky top-0 z-30 border-b border-border bg-background/90 backdrop-blur-md">
-      <div className="flex h-14 items-center gap-3 px-4 lg:px-6">
+    <header className="sticky top-0 z-30 bg-[var(--ff-rail)]/80 backdrop-blur-xl">
+      <div className="flex h-12 items-center gap-2 px-4 lg:px-6">
         <button
           type="button"
           className="inline-flex size-9 items-center justify-center rounded-lg border border-border bg-surface text-text-secondary lg:hidden"
@@ -72,19 +72,10 @@ export function Header({
           <Menu className="size-5" />
         </button>
 
-        <div className="min-w-0 flex-1">
-          <h1 className="truncate text-base font-semibold text-text-primary">
-            {t("header.pageTitle")}
-          </h1>
-          <p className="truncate text-xs text-text-muted">
-            {t("header.pageContext")}
-          </p>
-        </div>
-
         <button
           type="button"
           onClick={onOpenSearch}
-          className="hidden max-w-md flex-1 items-center gap-2 rounded-lg border border-border bg-surface px-3 py-2 text-left text-sm text-text-muted transition hover:border-border hover:text-text-secondary md:flex"
+          className="hidden max-w-sm flex-1 items-center gap-2 rounded-full border border-border/80 bg-surface/80 px-4 py-1.5 text-left text-sm text-text-muted shadow-sm transition hover:border-border hover:text-text-secondary md:flex lg:max-w-md"
         >
           <Search className="size-4 shrink-0" />
           <span className="truncate">{t("header.searchPlaceholder")}</span>

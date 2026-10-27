@@ -20,13 +20,16 @@ export function WelcomeSection({
   const firstName = t("user.name").split(" ")[0];
 
   return (
-    <section className="border-b border-border-subtle bg-surface/50 px-4 py-6 lg:px-8">
-      <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+    <section className="px-4 pb-2 pt-8 lg:px-10 lg:pt-10">
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-2xl">
-          <h2 className="text-2xl font-semibold tracking-tight text-text-primary">
+          <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-text-muted">
+            {t("header.pageContext")}
+          </p>
+          <h2 className="font-display mt-2 text-3xl font-semibold leading-tight tracking-tight text-text-primary sm:text-4xl">
             {t(greetingKey(hour), { name: firstName })}
           </h2>
-          <p className="mt-1 text-sm leading-relaxed text-text-secondary">
+          <p className="mt-3 max-w-xl text-base leading-relaxed text-text-secondary">
             {t("welcome.subtitle")}
           </p>
         </div>

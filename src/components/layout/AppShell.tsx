@@ -27,7 +27,7 @@ export function AppShell({
         mobileOpen={mobileOpen}
         onMobileClose={() => setMobileOpen(false)}
       />
-      <div className="flex min-w-0 flex-1 flex-col lg:pl-0">
+      <div className="flex min-w-0 flex-1 flex-col">
         <Header
           onOpenSearch={() => setSearchOpen(true)}
           onOpenMobileNav={() => setMobileOpen(true)}
@@ -35,7 +35,7 @@ export function AppShell({
           onToggleTheme={toggleTheme}
           onLanguageChange={(lng) => void i18n.changeLanguage(lng)}
         />
-        <main className="flex-1 overflow-x-hidden">{children}</main>
+        <main className="ff-canvas flex-1 overflow-x-hidden">{children}</main>
       </div>
       <GlobalSearchModal
         open={searchOpen}

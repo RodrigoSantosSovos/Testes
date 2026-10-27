@@ -9,12 +9,11 @@ type MetricKey = "processed" | "processing" | "failed" | "successRate";
 const metricConfig: {
   key: MetricKey;
   filter?: StatusFilter;
-  accent?: string;
 }[] = [
-  { key: "processed", filter: "completed", accent: "text-text-primary" },
-  { key: "processing", filter: "processing", accent: "text-accent" },
-  { key: "failed", accent: "text-error" },
-  { key: "successRate", accent: "text-success" },
+  { key: "processed", filter: "completed" },
+  { key: "processing", filter: "processing" },
+  { key: "failed" },
+  { key: "successRate" },
 ];
 
 export function OperationalSummary({
@@ -36,10 +35,10 @@ export function OperationalSummary({
 
   return (
     <section
-      className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border lg:grid-cols-4"
+      className="ff-hairline flex flex-col gap-4 bg-surface/60 px-4 py-5 backdrop-blur-sm sm:flex-row sm:items-stretch sm:divide-x sm:divide-border-subtle lg:px-10"
       aria-label={t("metrics.processed")}
     >
-      {metricConfig.map(({ key, filter, accent }) => {
+      {metricConfig.map(({ key, filter }, index) => {
         const isFailedMetric = key === "failed";
         const isClickable = Boolean(filter) || isFailedMetric;
         const isActive =
@@ -50,39 +49,48 @@ export function OperationalSummary({
             ? formatPercent(metrics.successRate, locale)
             : formatNumber(metrics[key], locale);
 
-        const inner = (
+        const content = (
           <>
-            <p className="text-xs font-medium uppercase tracking-wide text-text-muted">
-              {t(`metrics.${key}`)}
-            </p>
-            <p className={cn("mt-1 text-2xl font-semibold tabular-nums", accent)}>
+            <span className="font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-text-muted">
+              {String(index + 1).padStart(2, "0")} · {t(`metrics.${key}`)}
+            </span>
+            <span
+              className={cn(
+                "font-display mt-1 block text-3xl font-semibold tabular-nums tracking-tight",
+                key === "failed" && "text-error",
+                key === "successRate" && "text-success",
+                key === "processing" && "text-accent",
+              )}
+            >
               {value}
-            </p>
-            {isClickable && (
-              <p className="mt-2 text-[11px] text-text-muted">
-                {t("metrics.filterHint")}
-              </p>
-            )}
+            </span>
           </>
         );
 
-        return isClickable ? (
-          <button
-            key={key}
-            type="button"
-            onClick={() =>
-              isFailedMetric ? onFailuresFilter() : onFilterFromMetric(filter!)
-            }
-            className={cn(
-              "bg-surface px-4 py-4 text-left transition hover:bg-surface-elevated",
-              isActive && "ring-2 ring-inset ring-accent/40",
+        return (
+          <div key={key} className="min-w-0 flex-1 sm:px-5 first:sm:pl-0">
+            {isClickable ? (
+              <button
+                type="button"
+                onClick={() =>
+                  isFailedMetric ? onFailuresFilter() : onFilterFromMetric(filter!)
+                }
+                className={cn(
+                  "group w-full text-left transition-opacity hover:opacity-90",
+                  isActive && "opacity-100",
+                )}
+              >
+                {content}
+                <span
+                  className={cn(
+                    "mt-2 block h-0.5 w-8 rounded-full bg-transparent transition-all group-hover:w-12 group-hover:bg-accent/40",
+                    isActive && "w-12 bg-accent",
+                  )}
+                />
+              </button>
+            ) : (
+              <div>{content}</div>
             )}
-          >
-            {inner}
-          </button>
-        ) : (
-          <div key={key} className="bg-surface px-4 py-4">
-            {inner}
           </div>
         );
       })}

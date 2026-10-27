@@ -46,13 +46,13 @@ export function DocumentDetailsPanel({
       />
       <aside
         className={cn(
-          "fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col border-l border-border bg-surface shadow-xl transition-transform duration-200 lg:static lg:z-0 lg:max-w-sm lg:shadow-none",
+          "fixed inset-y-0 right-0 z-50 flex max-h-[85vh] w-full max-w-md flex-col border border-border bg-surface shadow-2xl transition-transform duration-200 sm:max-h-none sm:inset-y-auto sm:top-16 sm:bottom-4 sm:right-4 sm:rounded-lg xl:static xl:inset-auto xl:max-h-[calc(100vh-8rem)] xl:w-full xl:shadow-none",
           document ? "translate-x-0" : "translate-x-full",
         )}
         aria-label={t("panel.title")}
       >
-        <div className="flex items-center justify-between border-b border-border px-4 py-3">
-          <h2 className="text-sm font-semibold">{t("panel.title")}</h2>
+        <div className="flex items-center justify-between border-b border-border-subtle px-4 py-3">
+          <h2 className="font-display text-sm font-semibold">{t("panel.title")}</h2>
           <button
             type="button"
             onClick={onClose}
@@ -70,7 +70,7 @@ export function DocumentDetailsPanel({
             </span>
             <StatusBadge status={document.status} />
           </div>
-          <p className="mt-3 font-mono text-lg font-semibold text-text-primary">
+          <p className="font-display mt-3 text-2xl font-semibold tracking-tight text-text-primary">
             {document.number}
           </p>
           <p className="text-xs text-text-muted">{document.id}</p>

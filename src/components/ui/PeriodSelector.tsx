@@ -16,12 +16,12 @@ export function PeriodSelector({
   const { t } = useTranslation();
 
   return (
-    <div className={cn("flex flex-wrap items-center gap-2", className)}>
-      <span className="text-xs font-medium uppercase tracking-wide text-text-muted">
+    <div className={cn("flex flex-col gap-2", className)}>
+      <span className="text-[10px] font-medium uppercase tracking-[0.16em] text-text-muted">
         {t("period.label")}
       </span>
       <div
-        className="inline-flex flex-wrap gap-1 rounded-lg border border-border bg-surface p-1"
+        className="flex flex-wrap gap-x-1 gap-y-1 border-b border-border"
         role="group"
         aria-label={t("period.label")}
       >
@@ -31,10 +31,10 @@ export function PeriodSelector({
             type="button"
             onClick={() => onChange(p)}
             className={cn(
-              "rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
+              "-mb-px border-b-2 px-3 py-2 text-sm font-medium transition-colors",
               value === p
-                ? "bg-accent text-white shadow-sm dark:text-slate-900"
-                : "text-text-secondary hover:bg-surface-elevated hover:text-text-primary",
+                ? "border-accent text-text-primary"
+                : "border-transparent text-text-muted hover:text-text-secondary",
             )}
           >
             {t(`period.${p}`)}

@@ -56,19 +56,17 @@ export function OverviewPage({
   return (
     <>
       <WelcomeSection period={period} onPeriodChange={setPeriod} />
-      <div className="space-y-6 px-4 py-6 lg:px-8">
-        <OperationalSummary
-          period={period}
-          onFilterFromMetric={handleMetricFilter}
-          onFailuresFilter={applyFailuresFilter}
-          activeFilter={statusFilter}
-          failuresActive={failuresOnly}
-        />
+      <OperationalSummary
+        period={period}
+        onFilterFromMetric={handleMetricFilter}
+        onFailuresFilter={applyFailuresFilter}
+        activeFilter={statusFilter}
+        failuresActive={failuresOnly}
+      />
 
-        <OperationsChart period={period} />
-
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-start">
-          <div className="min-w-0 flex-1">
+      <div className="px-4 py-8 lg:px-10">
+        <div className="flex flex-col gap-8 xl:flex-row xl:items-start">
+          <div className="min-w-0 flex-1 xl:pr-4">
             <OperationalMonitor
               documents={filtered}
               search={search}
@@ -81,12 +79,15 @@ export function OverviewPage({
               onSelect={selectDocument}
             />
           </div>
-          {selected && (
-            <DocumentDetailsPanel
-              document={selected}
-              onClose={() => selectDocument(null)}
-            />
-          )}
+          <aside className="flex w-full shrink-0 flex-col gap-6 xl:w-[min(100%,22rem)] xl:sticky xl:top-16">
+            <OperationsChart period={period} />
+            {selected && (
+              <DocumentDetailsPanel
+                document={selected}
+                onClose={() => selectDocument(null)}
+              />
+            )}
+          </aside>
         </div>
       </div>
     </>
